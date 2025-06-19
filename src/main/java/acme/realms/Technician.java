@@ -3,15 +3,15 @@ package acme.realms;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
-import acme.client.components.validation.ValidString;
-import acme.constraints.ValidLicenseNumber;
+import acme.constraints.ValidLongText;
+import acme.constraints.ValidPhoneNumber;
+import acme.constraints.ValidShortText;
 import acme.constraints.ValidTechnician;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,32 +27,31 @@ public class Technician extends AbstractRole {
 
 	// Attributes -------------------------------------------------------------
 	@Mandatory
-	@ValidLicenseNumber
 	@Column(unique = true)
 	private String				licenseNumber;
 
 	@Mandatory
-	@ValidString(pattern = "^\\+?\\d{6,15}$")
+	@ValidPhoneNumber
 	@Automapped
 	private String				phoneNumber;
 
 	@Mandatory
-	@ValidString(min = 1, max = 50)
+	@ValidShortText
 	@Automapped
 	private String				specialisation;
 
 	@Mandatory
-	@Valid
+	// HINT @Valid by default
 	@Automapped
-	private Boolean				passedMedicalTest;
+	private boolean				annualHealthTest;
 
 	@Mandatory
-	@ValidNumber(min = 0, max = 120)
+	@ValidNumber(min = 0, max = 120, integer = 3)
 	@Automapped
-	private Integer				yearsExperience;
+	private int					yearsOfExperience;
 
 	@Optional
-	@ValidString(min = 0, max = 255)
+	@ValidLongText
 	@Automapped
 	private String				certifications;
 

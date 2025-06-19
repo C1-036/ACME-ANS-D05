@@ -14,9 +14,9 @@ authenticated.technician.form.title = Datos del técnico
 authenticated.technician.form.label.licenseNumber = Número de licencia:
 authenticated.technician.form.label.phoneNumber = Número de teléfono:
 authenticated.technician.form.label.specialisation = Especialización:
-authenticated.technician.form.label.yearsExperience = Años de experiencia:
+authenticated.technician.form.label.yearsOfExperience = Años de experiencia:
 authenticated.technician.form.label.certifications = Certificaciones:
-authenticated.technician.form.label.passedMedicalTest = Chequeo de salud anual:
+authenticated.technician.form.label.annualHealthTest = Chequeo de salud anual:
 	
 
 authenticated.technician.form.button.create = Registrar

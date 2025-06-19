@@ -23,7 +23,6 @@ technician.task.form.button.update = Update
 technician.task.form.button.delete = Delete
 technician.task.form.button.publish = Publish
 
-technician.task.form.placeholder.example = 0.00 - 100.00
 
 technician.task.list.label.type = Type
 technician.task.list.label.description = Description
@@ -32,5 +31,3 @@ technician.task.list.label.priority = Priority
 technician.task.list.button.create = Create
 technician.task.list.button.link = Link
 technician.task.list.button.unlink = UnLink
-
-technician.task.form.error.noType = Any type has been selected.

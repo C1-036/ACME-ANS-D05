@@ -1,0 +1,29 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+technician.dashboard.form.title = Technician dashboard
+
+technician.dashboard.form.title.general-indicators = General indicators (published and unpublished tasks and maintenance records)
+
+technician.dashboard.form.label.number-of-maintenance-records-pending = Number of pending maintenance records
+technician.dashboard.form.label.number-of-maintenance-records-in-progress = Number of in-progress maintenance records
+technician.dashboard.form.label.number-of-maintenance-records-completed = Number of completed maintenance records
+technician.dashboard.form.label.nearest-maintenance-record-by-inspection-due-date = Nearest maintenance record by inspection due date
+technician.dashboard.form.label.top-five-aircrafts-with-most-tasks = Top five aircrafts with the most tasks associated with their maintenance records
+technician.dashboard.form.label.maintenance-record-stats-estimated-cost-per-currency-last-year = Maintenance record cost per currency
+technician.dashboard.form.label.currency = Currency:
+technician.dashboard.form.label.min = Minimum:
+technician.dashboard.form.label.max = Maximum:
+technician.dashboard.form.label.avg = Average:
+technician.dashboard.form.label.stddev = Standard deviation:
+technician.dashboard.form.label.average-task-duration = Average task duration I’m involved in (hours)
+technician.dashboard.form.label.minimum-task-duration = Minimum task duration I’m involved in (hours)
+technician.dashboard.form.label.maximum-task-duration = Maximum task duration I’m involved in (hours)
+technician.dashboard.form.label.deviation-task-duration = Deviation in task duration I’m involved in (hours)

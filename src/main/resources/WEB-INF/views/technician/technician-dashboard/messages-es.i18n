@@ -1,0 +1,30 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+technician.dashboard.form.title = Panel de control del técnico
+
+technician.dashboard.form.title.general-indicators = Indicadores generales (tareas y registros de mantenimiento tanto publicados como no publicados)
+
+technician.dashboard.form.label.number-of-maintenance-records-pending = Número de registros de mantenimiento pendientes
+technician.dashboard.form.label.number-of-maintenance-records-in-progress = Número de registros de mantenimiento en curso
+technician.dashboard.form.label.number-of-maintenance-records-completed = Número de registros de mantenimiento completados
+technician.dashboard.form.label.nearest-maintenance-record-by-inspection-due-date = Registro de mantenimiento más cercano por fecha de inspección
+technician.dashboard.form.label.top-five-aircrafts-with-most-tasks = Cinco aeronaves con más tareas asociadas a sus registros de mantenimiento
+technician.dashboard.form.label.maintenance-record-stats-estimated-cost-per-currency-last-year = Coste de mis registros de mantenimiento por divisa
+technician.dashboard.form.label.currency = Divisa:
+technician.dashboard.form.label.min = Mínimo:
+technician.dashboard.form.label.max = Máximo:
+technician.dashboard.form.label.avg = Promedio:
+technician.dashboard.form.label.stddev = Desviación estándar:
+technician.dashboard.form.label.average-task-duration = Duración promedio de las tareas en las que estoy involucrado (horas)
+technician.dashboard.form.label.minimum-task-duration = Duración mínima de las tareas en las que estoy involucrado (horas)
+technician.dashboard.form.label.maximum-task-duration = Duración máxima de las tareas en las que estoy involucrado (horas)
+technician.dashboard.form.label.deviation-task-duration = Desviación en la duración de las tareas en las que estoy involucrado (horas)
+

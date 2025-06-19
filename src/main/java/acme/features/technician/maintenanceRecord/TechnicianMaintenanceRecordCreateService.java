@@ -25,36 +25,17 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 	// AbstractGuiService interface -------------------------------------------
 
 
-	/*
-	 * @Override
-	 * public void authorise() {
-	 * boolean status = true;
-	 * int aircraftId;
-	 * Aircraft aircraft;
-	 * 
-	 * if (super.getRequest().hasData("aircraft", int.class)) {
-	 * aircraftId = super.getRequest().getData("aircraft", int.class);
-	 * aircraft = this.repository.findAircraftById(aircraftId);
-	 * 
-	 * if (aircraft == null && aircraftId != 0)
-	 * status = false;
-	 * }
-	 * 
-	 * super.getResponse().setAuthorised(status);
-	 * }
-	 */
 	@Override
 	public void authorise() {
 		boolean status = true;
+		int aircraftId;
+		Aircraft aircraft;
 
-		// Comprobar que el usuario tiene rol de Technician
-		Technician tech = (Technician) super.getRequest().getPrincipal().getActiveRealm();
-		status = super.getRequest().getPrincipal().hasRealm(tech);
+		if (super.getRequest().hasData("aircraft", int.class)) {
+			aircraftId = super.getRequest().getData("aircraft", int.class);
+			aircraft = this.repository.findAircraftById(aircraftId);
 
-		// Si es POST y hay campo aircraft, verificar que el avión existe
-		if (super.getRequest().getMethod().equals("POST") && super.getRequest().hasData("aircraft", int.class)) {
-			int aircraftId = super.getRequest().getData("aircraft", int.class);
-			if (aircraftId != 0 && this.repository.findAircraftById(aircraftId) == null)
+			if (aircraft == null && aircraftId != 0)
 				status = false;
 		}
 
@@ -69,6 +50,7 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 		technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 
 		maintenanceRecord = new MaintenanceRecord();
+		maintenanceRecord.setMoment(java.util.Calendar.getInstance().getTime());
 		maintenanceRecord.setDraftMode(true);
 		maintenanceRecord.setTechnician(technician);
 
@@ -78,7 +60,9 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 	@Override
 	public void bind(final MaintenanceRecord maintenanceRecord) {
 
-		super.bindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost", "notes");
+		super.bindObject(maintenanceRecord, "status", "inspectionDueDate", "estimatedCost", "notes");
+
+		//super.bindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost", "notes");
 
 		maintenanceRecord.setAircraft(super.getRequest().getData("aircraft", Aircraft.class));
 
@@ -91,6 +75,7 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 
 	@Override
 	public void perform(final MaintenanceRecord maintenanceRecord) {
+		maintenanceRecord.setMoment(java.util.Calendar.getInstance().getTime());
 		this.repository.save(maintenanceRecord);
 	}
 

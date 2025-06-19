@@ -63,7 +63,9 @@ public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService
 		aircraftId = super.getRequest().getData("aircraft", int.class);
 		aircraft = this.repository.findAircraftById(aircraftId);
 
-		super.bindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost", "notes");
+		super.bindObject(maintenanceRecord, "status", "inspectionDueDate", "estimatedCost", "notes");
+
+		//super.bindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost", "notes");
 		maintenanceRecord.setAircraft(aircraft);
 	}
 

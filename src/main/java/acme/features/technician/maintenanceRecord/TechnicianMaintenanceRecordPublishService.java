@@ -30,27 +30,32 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 	public void authorise() {
 		boolean status = false;
 		boolean statusAircraft = true;
+		int maintenanceRecordId;
 		MaintenanceRecord maintenanceRecord;
+		boolean isDraft;
+		boolean isTechnician;
+		int aircraftId;
 		Aircraft aircraft;
 
 		if (super.getRequest().hasData("id", int.class)) {
-			int maintenanceRecordId = super.getRequest().getData("id", int.class);
+			maintenanceRecordId = super.getRequest().getData("id", int.class);
 			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
 
 			if (maintenanceRecord != null) {
 				Technician technician = maintenanceRecord.getTechnician();
-				boolean isDraft = maintenanceRecord.isDraftMode();
-				boolean isTechnician = super.getRequest().getPrincipal().hasRealm(technician);
+				isDraft = maintenanceRecord.isDraftMode();
+				isTechnician = super.getRequest().getPrincipal().hasRealm(technician);
+
 				status = isDraft && isTechnician;
 			}
 		}
 
 		if (super.getRequest().hasData("aircraft", int.class)) {
-			int aircraftId = super.getRequest().getData("aircraft", int.class);
-			if (aircraftId != 0) {
-				aircraft = this.repository.findAircraftById(aircraftId);
-				statusAircraft = aircraft != null;
-			}
+			aircraftId = super.getRequest().getData("aircraft", int.class);
+			aircraft = this.repository.findAircraftById(aircraftId);
+
+			if (aircraft == null && aircraftId != 0)
+				statusAircraft = false;
 		}
 
 		super.getResponse().setAuthorised(status && statusAircraft);

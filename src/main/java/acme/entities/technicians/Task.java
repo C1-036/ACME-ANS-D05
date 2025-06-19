@@ -11,7 +11,7 @@ import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidNumber;
-import acme.client.components.validation.ValidString;
+import acme.constraints.ValidLongText;
 import acme.realms.Technician;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,7 +35,7 @@ public class Task extends AbstractEntity {
 	private TaskType			type;
 
 	@Mandatory
-	@ValidString(min = 1, max = 255)
+	@ValidLongText
 	@Automapped
 	private String				description;
 
@@ -50,6 +50,7 @@ public class Task extends AbstractEntity {
 	private Integer				estimatedDurationHours;
 
 	@Mandatory
+	// HINT: @valid by default
 	@Automapped
 	private boolean				draftMode;
 

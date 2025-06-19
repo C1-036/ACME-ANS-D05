@@ -17,8 +17,8 @@ user-account-technician-03,true,"UserIdentity{name: 'Catalina', surname: 'Maesso
 user-account-airline-manager-01,true,"UserIdentity{name: 'Airline Manager 1', surname: 'Acme-ANS-C1.036', email: 'airlinemanager1@acme.com'}",manager1,manager1
 user-account-airline-manager-02,true,"UserIdentity{name: 'Airline Manager 2', surname: 'Acme-ANS-C1.036', email: 'airlinemanager2@acme.com'}",manager2,manager2
 user-account-airline-manager-03,true,"UserIdentity{name: 'Airline Manager 3', surname: 'Acme-ANS-C1.036', email: 'airlinemanager3@acme.com'}",manager3,manager3
-user-account-administrator-001,true,"UserIdentity{name: 'Admin One', surname: 'Acme-ANS-C1.036', email: 'admin1@acme.com'}",administrator1,administrator1
-user-account-administrator-002,true,"UserIdentity{name: 'Admin Two', surname: 'Acme-ANS-C1.036', email: 'admin2@acme.com'}",administrator2,administrator2
+user-account-administrator-02,true,"UserIdentity{name: 'Administrator', surname: 'Second', email: 'Admin@acme.com'}",administrator1,administrator1
+user-account-administrator-03,true,"UserIdentity{name: 'Admin', surname: 'Third', email: 'Admin2@acme.com'}",administrator2,administrator2
 user-account-member-01,true,"UserIdentity{name: 'John', surname: 'Doe', email: 'john.doe@acme.com'}",member1,member1
 user-account-member-02,true,"UserIdentity{name: 'Jane', surname: 'Smith', email: 'jane.smith@acme.com'}",member2,member2
 user-account-member-03,true,"UserIdentity{name: 'Tom', surname: 'Johnson', email: 'tom.johnson@acme.com'}",member3,member3
