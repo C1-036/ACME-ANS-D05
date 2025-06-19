@@ -1,3 +1,4 @@
 key,key:user-account,identifier,phoneNumber,physicalAddress,city,country,earnedPoints
 customer-01,user-account-customer-01,CAM123456,666666666,Calle Pirineo 23,Sevilla,España,30000
 customer-02,user-account-customer-02,CAZ123457,674345823,Calle roma 27,Madrid,España,0
+customer-03,user-account-customer-03,CAE123458,662932459,Calle julio 4,Barcelona,España,0

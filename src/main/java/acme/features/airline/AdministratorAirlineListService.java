@@ -26,12 +26,8 @@ public class AdministratorAirlineListService extends AbstractGuiService<Administ
 	@Override
 	public void load() {
 		Collection<Airline> airlines;
-		int airlineId;
 
-		airlineId = super.getRequest().getPrincipal().getActiveRealm().getId();
-
-		airlines = this.repository.findAllAirlinesByAdministrator(airlineId);
-
+		airlines = this.repository.findAllAirlines();
 		super.getBuffer().addData(airlines);
 
 	}

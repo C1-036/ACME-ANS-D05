@@ -24,13 +24,9 @@ public class AdministratorAirlineCreateService extends AbstractGuiService<Admini
 	}
 	@Override
 	public void load() {
-		Administrator administrator;
 		Airline airline;
 
-		administrator = (Administrator) super.getRequest().getPrincipal().getActiveRealm();
-
 		airline = new Airline();
-		airline.setAdministrator(administrator);
 
 		super.getBuffer().addData(airline);
 
