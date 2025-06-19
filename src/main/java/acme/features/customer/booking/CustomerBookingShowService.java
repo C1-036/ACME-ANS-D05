@@ -2,11 +2,13 @@
 package acme.features.customer.booking;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.customers.Booking;
@@ -54,8 +56,9 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 		SelectChoices choices;
 		Collection<Flight> flights;
 		SelectChoices choices2;
+		Date currentDate = MomentHelper.getCurrentMoment();
 
-		flights = this.repository.findAllFlights();
+		flights = this.repository.findAllFlights(currentDate);
 
 		choices = SelectChoices.from(flights, "tag", booking.getFlight());
 		choices2 = SelectChoices.from(TravelClass.class, booking.getTravelClass());

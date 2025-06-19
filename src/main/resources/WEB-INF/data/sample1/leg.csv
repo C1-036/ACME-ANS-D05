@@ -1,0 +1,2 @@
+key,flightNumber,scheduledDeparture,scheduledArrival,status,draftMode,key:departureAirport,key:arrivalAirport,key:aircraft,key:flight
+leg-39,DGX1020,2024/09/01 12:30,2025/09/01 12:50,ON_TIME,FALSE,airport-02,airport-03,aircraft-03,flight-38

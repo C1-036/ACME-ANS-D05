@@ -27,7 +27,7 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 	public void authorise() {
 		boolean status;
 		Customer customer = (Customer) super.getRequest().getPrincipal().getActiveRealm();
-
+		Date currentDate = MomentHelper.getCurrentMoment();
 		boolean hasFlightId = super.getRequest().hasData("flight", int.class);
 		boolean isFlightAccessible = false;
 
@@ -35,7 +35,7 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 			int flightId = super.getRequest().getData("flight", int.class);
 
 			if (flightId != 0)
-				isFlightAccessible = this.repository.isFlightPublished(flightId);
+				isFlightAccessible = this.repository.isFlightPublished(flightId, currentDate);
 			else
 
 				isFlightAccessible = true;
@@ -108,10 +108,10 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		SelectChoices choices;
 		Dataset dataset;
 		SelectChoices choices2;
-
+		Date currentDate = MomentHelper.getCurrentMoment();
 		Date purchaseMoment;
 		purchaseMoment = MomentHelper.getCurrentMoment();
-		flights = this.repository.findAllFlights();
+		flights = this.repository.findAllFlights(currentDate);
 
 		choices = SelectChoices.from(flights, "tag", booking.getFlight());
 		choices2 = SelectChoices.from(TravelClass.class, booking.getTravelClass());

@@ -2,6 +2,7 @@
 package acme.features.customer.booking;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -28,8 +29,8 @@ public interface CustomerBookingRepository extends AbstractRepository {
 	@Query("SELECT b FROM Booking b WHERE b.customer.id = :id")
 	Collection<Booking> findABookingByCustomer(int id);
 
-	@Query("SELECT DISTINCT l.flight FROM Leg l WHERE l.flight.draftMode = false AND l.scheduledDeparture > CURRENT_TIMESTAMP")
-	Collection<Flight> findAllFlights();
+	@Query("SELECT DISTINCT f FROM Flight f JOIN Leg l ON l.flight = f " + "WHERE f.draftMode = false " + "AND l.scheduledDeparture = (SELECT MIN(l2.scheduledDeparture) FROM Leg l2 WHERE l2.flight = f) " + "AND l.scheduledDeparture > :currentDate")
+	Collection<Flight> findAllFlights(Date currentDate);
 
 	@Query("SELECT f FROM Flight f WHERE f.id = :flightId and f.draftMode = false")
 	Flight findFlightById(int flightId);
@@ -46,8 +47,9 @@ public interface CustomerBookingRepository extends AbstractRepository {
 	@Query("SELECT COUNT(b) > 0 FROM Booking b WHERE b.flight.id = :flightId AND b.customer.id = :customerId")
 	boolean isFlightBookedByCustomer(int flightId, int customerId);
 
-	@Query("SELECT COUNT(f) > 0 FROM Flight f WHERE f.id = :flightId AND f.draftMode = false")
-	boolean isFlightPublished(int flightId);
+	@Query("SELECT COUNT(f) > 0 FROM Flight f JOIN Leg l ON l.flight = f " + "WHERE f.id = :flightId AND f.draftMode = false " + "AND l.scheduledDeparture = (SELECT MIN(l2.scheduledDeparture) FROM Leg l2 WHERE l2.flight = f) "
+		+ "AND l.scheduledDeparture > :currentDate")
+	boolean isFlightPublished(int flightId, Date currentDate);
 
 	@Query("SELECT COUNT(b) > 0 FROM Booking b WHERE b.locatorCode = :locatorCode AND b.id != :id")
 	boolean existsByLocatorCodeAndIdNot(String locatorCode, int id);
