@@ -29,7 +29,6 @@
 	</jstl:if>	
 	
 		<jstl:if test="${_command == 'list-booking'}">
-	<acme:button code="customer.make.list.button.create" action="/customer/passenger/create?bookingId=${bookingId}"/>
 	<acme:button code="customer.make.list.button.link" action="/customer/make/create?bookingId=${bookingId}"/>
 	<acme:button code="customer.make.list.button.unlink" action="/customer/make/delete?bookingId=${bookingId}"/>
 	</jstl:if>
