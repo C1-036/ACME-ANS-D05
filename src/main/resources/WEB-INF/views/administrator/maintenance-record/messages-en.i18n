@@ -1,0 +1,29 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.maintenance-record.form.title = Maintenance record form 
+administrator.maintenance-record.list.title = Listing of maintenance records
+
+administrator.maintenance-record.form.label.moment = Maintenance moment:
+administrator.maintenance-record.form.label.status = Status:
+administrator.maintenance-record.form.label.insepctionDueDate = Inspection Due Date:
+administrator.maintenance-record.form.label.estimatedCost = Estimated cost:
+administrator.maintenance-record.form.label.notes = Notes:
+administrator.maintenance-record.form.label.aircraft = associated Aircraft:
+administrator.maintenance-record.form.label.technician = associated technician: 
+
+		
+administrator.maintenance-record.form.button.tasks = Tasks
+
+administrator.maintenance-record.list.label.moment = Maintenance moment
+administrator.maintenance-record.list.label.status = Status
+administrator.maintenance-record.list.label.inspectionDueDate = Inspection due date
+
+

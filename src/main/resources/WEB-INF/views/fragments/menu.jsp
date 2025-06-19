@@ -39,6 +39,8 @@
 			<acme:menu-suboption code="master.menu.administrator.list-user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-suboption code="master.menu.administrator.aircrafts" action="/administrator/aircraft/list"/>
 			<acme:menu-suboption code="master.menu.administrator.airports" action="/administrator/airport/list"/>
+			<acme:menu-suboption code="master.menu.administrator.list-maintenance-records" action="/administrator/maintenance-record/list"/>
+			<acme:menu-suboption code="master.menu.administrator.show-dashboard" action="/administrator/administrator-dashboard/show"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-db-initial" action="/administrator/system/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-db-sample" action="/administrator/system/populate-sample"/>			
@@ -53,6 +55,9 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.technician.list-maintenance-record-catalogue" action="/technician/maintenance-record/list" />
 			<acme:menu-suboption code="master.menu.technician.list-task-catalogue" action="/technician/task/list" />
+			
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.technician.show-dashboard" action="/technician/technician-dashboard/show" />
 			
 		</acme:menu-option>
 		
@@ -94,6 +99,8 @@
 			<acme:menu-suboption code="master.menu.user-account.consumer-profile" action="/authenticated/consumer/update" access="hasRealm('Consumer')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-manager" action="/authenticated/airline-manager/create" access="!hasRealm('AirlineManager')"/>
 			<acme:menu-suboption code="master.menu.user-account.update-manager" action="/authenticated/airline-manager/update" access="hasRealm('AirlineManager')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-technician" action="/authenticated/technician/create" access="!hasRealm('Technician')" />
+			<acme:menu-suboption code="master.menu.user-account.technician-profile" action="/authenticated/technician/update" access="hasRealm('Technician')" />
 		</acme:menu-option>
 	</acme:menu-right>
 </acme:menu-bar>

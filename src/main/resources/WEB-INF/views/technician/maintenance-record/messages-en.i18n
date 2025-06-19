@@ -16,10 +16,9 @@ technician.maintenance-record.form.label.status = Status:
 technician.maintenance-record.form.label.insepctionDueDate = Inspection Due Date:
 technician.maintenance-record.form.label.estimatedCost = Estimated cost:
 technician.maintenance-record.form.label.notes = Notes:
-technician.maintenance-record.form.label.aircraft = asociated Aircraft:
-technician.maintenance-record.form.label.technician = asociated Technician: 
+technician.maintenance-record.form.label.aircraft = Associated Aircraft:
+technician.maintenance-record.form.label.technician = Associated Technician: 
 
-technician.maintenance-record.form.placeholder.score = 0.00 - 100.00
 		
 technician.maintenance-record.form.button.tasks = Tasks
 technician.maintenance-record.form.button.update = Update
@@ -30,9 +29,9 @@ technician.maintenance-record.form.button.create = Create
 technician.maintenance-record.list.label.moment = Maintenance moment
 technician.maintenance-record.list.label.status = Status
 technician.maintenance-record.list.label.inspectionDueDate = Inspection due date
-technician.maintenance-record.list.label.draftMode = Draft mode
 
 technician.maintenance-record.list.button.create = Create
 
 technician.maintenance-record.form.error.zero-tasks = In order to publish a maintenance record, it must have at least one published task
 technician.maintenance-record.form.error.not-all-tasks-published = In order to publish a maintenance record, it must have all it tasks published
+technician.maintenance-record.form.error.not-completed-status = In order to publish a maintenance record, the status must be completed

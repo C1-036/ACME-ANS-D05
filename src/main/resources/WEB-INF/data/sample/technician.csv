@@ -1,4 +1,4 @@
-key,licenseNumber,phoneNumber,specialisation,passedMedicalTest,yearsExperience,certifications,key:userAccount
+key,licenseNumber,phoneNumber,specialisation,annualHealthTest,yearsOfExperience,certifications,key:userAccount
 technician-01,DE123457,123456789,Avionics,TRUE,5,Electrical Systems Certification,user-account-technician-01
 technician-02,EC654321,987654321,Aerodynamics,FALSE,3,Structural Repair Certification,user-account-technician-02
 technician-03,CM234567,334455667,Electronics,FALSE,10,,user-account-technician-03

@@ -24,31 +24,56 @@ public class TechnicianInvolvesCreateService extends AbstractGuiService<Technici
 
 	// AbstractGuiService interface -------------------------------------------
 
+	//	@Override
+	//	public void authorise() {
+	//
+	//		boolean statusTask = true;
+	//		boolean status = false;
+	//		int taskId;
+	//		Task task;
+	//		int maintenanceRecordId;
+	//		MaintenanceRecord maintenanceRecord;
+	//		Technician technician;
+	//		Collection<Task> tasks;
+	//
+	//		technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
+	//		maintenanceRecordId = super.getRequest().getData("maintenanceRecordId", int.class);
+	//		maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+	//
+	//		tasks = this.repository.findValidTasksToLink(maintenanceRecord, technician);
+	//
+	//		if (super.getRequest().hasData("task", int.class)) {
+	//			taskId = super.getRequest().getData("task", int.class);
+	//			task = this.repository.findTaskById(taskId);
+	//
+	//			if (!tasks.contains(task) && taskId != 0)
+	//				statusTask = false;
+	//		}
+	//
+	//		status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician());
+	//
+	//		super.getResponse().setAuthorised(status && statusTask);
+	//	}
+
 
 	@Override
 	public void authorise() {
-
-		boolean statusTask = true;
 		boolean status = false;
-		int taskId;
-		Task task;
+		boolean statusTask = true;
 		int maintenanceRecordId;
+		Integer taskId;
+		Task task = null;
 		MaintenanceRecord maintenanceRecord;
 		Technician technician;
-		Collection<Task> tasks;
 
 		technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 		maintenanceRecordId = super.getRequest().getData("maintenanceRecordId", int.class);
 		maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+		taskId = super.getRequest().hasData("task", int.class) ? super.getRequest().getData("task", int.class) : null;
 
-		tasks = this.repository.findValidTasksToLink(maintenanceRecord, technician);
-
-		if (super.getRequest().hasData("task", int.class)) {
-			taskId = super.getRequest().getData("task", int.class);
+		if (taskId != null) {
 			task = this.repository.findTaskById(taskId);
-
-			if (!tasks.contains(task) && taskId != 0)
-				statusTask = false;
+			statusTask = task != null && (!task.isDraftMode() || task.getTechnician().equals(technician));
 		}
 
 		status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician());

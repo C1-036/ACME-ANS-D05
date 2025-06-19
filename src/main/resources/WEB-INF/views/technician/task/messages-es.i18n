@@ -21,7 +21,6 @@ technician.task.form.button.update = Actualizar
 technician.task.form.button.delete = Borrar
 technician.task.form.button.publish = Publicar
 
-technician.task.form.placeholder.example = 0.00 - 100.00
 
 technician.task.list.label.type = Tipo
 technician.task.list.label.description = Descripción

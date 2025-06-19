@@ -35,4 +35,13 @@ public interface TechnicianTaskRepository extends AbstractRepository {
 	@Query("select i from Involves i where i.task.id = :taskId")
 	Collection<Involves> findInvolvesByTaskId(int taskId);
 
+	@Query("""
+		select t from Task t
+		where (t.draftMode = false or t.technician.id = :technicianId)
+		and t.id not in (
+			select inv.task.id from Involves inv where inv.maintenanceRecord.id = :maintenanceRecordId
+		)
+		""")
+	Collection<Task> findTasksAvailableToInvolve(int maintenanceRecordId, int technicianId);
+
 }

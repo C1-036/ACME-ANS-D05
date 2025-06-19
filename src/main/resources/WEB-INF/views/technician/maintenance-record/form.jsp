@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form> 
-	<acme:input-moment code="technician.maintenance-record.form.label.moment" path="moment"/>
+	<acme:input-moment code="technician.maintenance-record.form.label.moment" path="moment" readonly="true"/>
 	<acme:input-select code="technician.maintenance-record.form.label.status" path="status" choices="${statuses}"/>
 	<acme:input-moment code="technician.maintenance-record.form.label.insepctionDueDate" path="inspectionDueDate"/>
 	<acme:input-money code="technician.maintenance-record.form.label.estimatedCost" path="estimatedCost"/>

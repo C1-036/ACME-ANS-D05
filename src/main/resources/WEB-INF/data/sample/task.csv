@@ -1,4 +1,4 @@
-key,type,description,priority,estimatedDurationHours,draftMode,key:technician
+key,type,description,priority,estimated-duration-hours,draft-mode,key:technician
 # base entity
 task-000,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500,TRUE,technician-01
 # type - standard variations
@@ -30,10 +30,10 @@ task-019,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Se
 task-020,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,1,TRUE,technician-01
 task-021,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,999,TRUE,technician-01
 task-022,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,1000,TRUE,technician-01
-# estimatedDurationHours - no singular values
-# draftMode - standard variations
+# estimated-duration-hours - no singular values
+# draft-mode - standard variations
 task-023,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500,FALSE,technician-01
-# draftMode - no singular values
+# draft-mode - no singular values
 # technician - standard variations
 task-024,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500,TRUE,technician-02
 # technician - no singular values

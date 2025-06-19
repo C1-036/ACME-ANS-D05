@@ -21,19 +21,34 @@ public class TechnicianTaskShowService extends AbstractGuiService<Technician, Ta
 
 	// AbstractGuiService interface -------------------------------------------
 
+	//	@Override
+	//	public void authorise() {
+	//
+	//		boolean status;
+	//		int masterId;
+	//		Task task;
+	//		Technician technician;
+	//
+	//		status = super.getRequest().hasData("id", int.class);
+	//		if (status) {
+	//			masterId = super.getRequest().getData("id", int.class);
+	//			task = this.repository.findTaskById(masterId);
+	//			technician = task == null ? null : task.getTechnician();
+	//			status = task != null && (super.getRequest().getPrincipal().hasRealm(technician) || !task.isDraftMode());
+	//		}
+	//		super.getResponse().setAuthorised(status);
+	//	}
+
 
 	@Override
 	public void authorise() {
-		boolean status = false;
+		int taskId = super.getRequest().getData("id", int.class);
+		Task task = this.repository.findTaskById(taskId);
 
-		if (super.getRequest().hasData("id", int.class)) {
-			int taskId = super.getRequest().getData("id", int.class);
-			Task task = this.repository.findTaskById(taskId);
+		boolean isOwner = task != null && super.getRequest().getPrincipal().hasRealm(task.getTechnician());
+		boolean isPublished = task != null && !task.isDraftMode();
 
-			status = task != null && super.getRequest().getPrincipal().hasRealm(task.getTechnician());
-		}
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(task != null && (isOwner || isPublished));
 	}
 
 	@Override

@@ -11,13 +11,10 @@
 technician.involves.form.title = Formulario de vinculación de tarea
 technician.involves.list.title = Lista de tareas vinculadas
 
-technician.involves.form.label.maintenanceRecord = Registro de mantenimiento:
 technician.involves.form.label.task = Tarea:
 technician.involves.form.label.aircraft = Aeronave asociada:
 
-technician.involves.form.button.create = Crear		
-technician.involves.form.button.update = Actualizar
-technician.involves.form.button.delete = Borrar
+
 technician.involves.form.button.link = Vincular
 technician.involves.form.button.unlink = Desvincular
 
@@ -26,4 +23,4 @@ technician.involves.list.label.task = Tarea
 
 technician.involves.list.button.create = Crear
 
-technician.involves.form.error.no-task-to-unlink = No puede ser nulo.  
+technician.involves.form.error.no-task-to-unlink = No puede ser nulo  

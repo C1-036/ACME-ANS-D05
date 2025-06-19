@@ -11,13 +11,10 @@
 technician.involves.form.title = Task link form
 technician.involves.list.title = Linked tasks list
 
-technician.involves.form.label.maintenanceRecord = Maintenance record:
 technician.involves.form.label.task = Task:
 technician.involves.form.label.aircraft = Aircraft associated:
 
-technician.involves.form.button.create = Create		
-technician.involves.form.button.update = Update
-technician.involves.form.button.delete = Delete
+
 technician.involves.form.button.link = Link
 technician.involves.form.button.unlink = Unlink
 
@@ -27,6 +24,5 @@ technician.involves.list.label.task = Task
 
 technician.involves.list.button.create = Create
 
-
-technician.involves.form.error.no-task-to-unlink = May not be null.  
+technician.involves.form.error.no-task-to-unlink = May not be null  
 

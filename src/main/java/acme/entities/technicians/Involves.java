@@ -37,4 +37,5 @@ public class Involves extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Task				task;
+
 }

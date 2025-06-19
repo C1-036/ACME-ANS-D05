@@ -28,34 +28,33 @@ public class TechnicianValidator extends AbstractValidator<ValidTechnician, Tech
 
 	@Override
 	public boolean isValid(final Technician technician, final ConstraintValidatorContext context) {
-
 		assert context != null;
-
 		boolean result;
 
-		{
-			boolean uniqueTechnician;
-			Technician existingTechnician;
+		// Validación de duplicado
+		Technician existingTechnician = this.repository.findTechnicianByLicenseNumber(technician.getLicenseNumber());
+		boolean uniqueTechnician = existingTechnician == null || existingTechnician.equals(technician);
+		super.state(context, uniqueTechnician, "licenseNumber", "acme.validation.technician.duplicated-license-number.message");
 
-			existingTechnician = this.repository.findTechnicianByLicenseNumber(technician.getLicenseNumber());
-			uniqueTechnician = existingTechnician == null || existingTechnician.equals(technician);
+		// Validación unificada de formato + iniciales
+		boolean validStructure = false;
+		boolean initialsMatch = false;
 
-			super.state(context, uniqueTechnician, "licenseNumber", "acme.validation.technician.duplicated-license-number.message");
+		String license = technician.getLicenseNumber();
+		if (license != null) {
+			validStructure = license.matches("^[A-Z]{2,3}\\d{6}$");
 
+			if (license.length() >= 2 && technician.getIdentity() != null) {
+				char expectedFirst = technician.getIdentity().getName().charAt(0);
+				char expectedSecond = technician.getIdentity().getSurname().charAt(0);
+				initialsMatch = license.charAt(0) == expectedFirst && license.charAt(1) == expectedSecond;
+			}
 		}
-		{
-			boolean correctLicenseNubmer;
 
-			char firstLetterName = technician.getIdentity().getName().charAt(0);
-			char firstLetterSurname = technician.getIdentity().getSurname().charAt(0);
+		boolean validLicense = validStructure && initialsMatch;
+		super.state(context, validLicense, "licenseNumber", "acme.validation.technician.license-number.message");
 
-			correctLicenseNubmer = technician.getLicenseNumber().charAt(0) == firstLetterName && technician.getLicenseNumber().charAt(1) == firstLetterSurname;
-
-			super.state(context, correctLicenseNubmer, "licenseNumber", "acme.validation.technician.wrong-initials-license-number.message");
-
-		}
 		result = !super.hasErrors(context);
-
 		return result;
 	}
 

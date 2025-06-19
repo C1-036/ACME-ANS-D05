@@ -29,6 +29,8 @@ master.menu.administrator = Administrador
 master.menu.administrator.list-user-accounts = Ver cuentas de usuario
 master.menu.administrator.aircrafts = Ver aeronaves
 master.menu.administrator.airports = Aeropuertos
+master.menu.administrator.list-maintenance-records = Catálogo de registros de mantenimiento
+master.menu.administrator.show-dashboard = Mostrar dashboard
 master.menu.administrator.populate-db-initial = Poblar BD (inicial)
 master.menu.administrator.populate-db-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-system-down = Parar el sistema
@@ -39,9 +41,10 @@ master.menu.administrator.list-airlines = Aerolineas
 master.menu.technician = Técnico
 master.menu.technician.list-my-maintenance-records= Listar mis registros de mantenimiento
 master.menu.technician.list-my-tasks = Listar mis tareas
-
-master.menu.technician.list-maintenance-record-catalogue = Listar registros de mantenimiento publicados
-master.menu.technician.list-task-catalogue = Listar de tareas publicadas
+master.menu.technician.list-maintenance-record-catalogue = Listar catálogo de registros de mantenimiento
+master.menu.technician.list-task-catalogue = Listar catálogo de tareas
+master.menu.technician.list-courses = Listar cursos
+master.menu.technician.show-dashboard = Mostrar dashboard
 
 # master.menu.assistance-agent ########################################################
 
@@ -92,3 +95,5 @@ master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.consumer-profile = Perfil de consumidor
 master.menu.user-account.become-manager = Hazte manager
 master.menu.user-account.update-manager = Perfil de manager
+master.menu.user-account.become-technician = Hazte técnico
+master.menu.user-account.technician-profile = Perfil de técnico

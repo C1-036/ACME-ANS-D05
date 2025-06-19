@@ -43,7 +43,8 @@ public class MaintenanceRecord extends AbstractEntity {
 
 	// Attributes ------------------------------------------------------------------------
 	@Mandatory
-	@ValidMoment(past = true)
+	//@ValidMoment(past = true)
+	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				moment;
 
@@ -63,25 +64,25 @@ public class MaintenanceRecord extends AbstractEntity {
 	private Money				estimatedCost;
 
 	@Optional
-	//@ValidString(min = 0, max = 255)
 	@ValidLongText
 	@Automapped
 	private String				notes;
 
 	@Mandatory
-	//@Valid
+	// HINT: @valid by default
 	@Automapped
 	private boolean				draftMode;
 
 	// Relations ------------------------------------------------
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private Technician			technician;
 
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
 	private Aircraft			aircraft;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Technician			technician;
 
 }
