@@ -42,13 +42,14 @@ public class CustomerPassengerListBooking extends AbstractGuiService<Customer, P
 	public void load() {
 		Collection<Passenger> passenger;
 		int bookingId;
-
+		Booking booking;
 		bookingId = super.getRequest().getData("bookingId", int.class);
 
 		passenger = this.repository.findAllPassengerByBooking(bookingId);
-
+		booking = this.bookingRepository.findBookingById(bookingId);
 		super.getBuffer().addData(passenger);
 		super.getResponse().addGlobal("bookingId", bookingId);
+		super.getResponse().addGlobal("booking", booking);
 
 	}
 
