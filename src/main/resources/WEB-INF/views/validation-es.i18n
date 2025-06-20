@@ -62,3 +62,8 @@ assistanceAgent.claim.form.error.legNotPublished = No puedes enviar una reclamac
 acme.validation.customer.booking.locatorCode-already-exits = Ya existe una reserva con este código de localización.
 acme.validation.customer.booking.no-publicated-passenger = La reserva debe tener todoslos pasajeros publicados.
 acme.validation.customer.booking.no-associated-passenger = La reserva debe tener almenos un pasajero.
+
+acme.validation.airport.confirmation.message=Debe confirmar esta operación.
+acme.validation.airport.iataCode.duplicated = El código IATA ya está en uso.
+
+

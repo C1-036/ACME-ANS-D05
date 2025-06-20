@@ -33,5 +33,6 @@ administrator.airport.list.label.emailAddress = Email Address
 administrator.airport.list.label.contactPhoneNumber = Contact Phone Number
 
 # Buttons
+administrator.airport.list.button.create = Create
 administrator.airport.form.button.create = Create
 administrator.airport.form.button.update = Update

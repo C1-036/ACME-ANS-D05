@@ -59,9 +59,9 @@ acme.validation.task.maintenance-record-linked.message = In order to delete a ta
 assistanceAgent.claim.form.error.emptyLeg = You must select a flight leg for the claim.
 assistanceAgent.claim.form.error.legNotPublished = You cannot submit a claim for a leg that has not been published.
 
-
-
-
 acme.validation.customer.booking.no-publicated-passenger = A booking must have all passengers published.
 acme.validation.customer.booking.locatorCode-already-exits = A booking with this locator code already exits.
 acme.validation.customer.booking.no-associated-passenger = A booking must have at least one passenger.
+
+acme.validation.airport.confirmation.message=You must confirm this operation.
+acme.validation.airport.iataCode.duplicated = The IATA code is already in use.
