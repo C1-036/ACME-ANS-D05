@@ -65,3 +65,5 @@ acme.validation.customer.booking.no-associated-passenger = A booking must have a
 
 acme.validation.airport.confirmation.message=You must confirm this operation.
 acme.validation.airport.iataCode.duplicated = The IATA code is already in use.
+
+acme.validation.text.message= The text must be less than 255

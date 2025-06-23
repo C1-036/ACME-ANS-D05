@@ -66,4 +66,6 @@ acme.validation.customer.booking.no-associated-passenger = La reserva debe tener
 acme.validation.airport.confirmation.message=Debe confirmar esta operación.
 acme.validation.airport.iataCode.duplicated = El código IATA ya está en uso.
 
+acme.validation.text.message= El texto debe ser menor a
+ 255
 
