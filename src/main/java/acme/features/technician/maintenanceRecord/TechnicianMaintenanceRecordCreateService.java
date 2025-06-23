@@ -64,7 +64,12 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 
 		//super.bindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost", "notes");
 
-		maintenanceRecord.setAircraft(super.getRequest().getData("aircraft", Aircraft.class));
+		//maintenanceRecord.setAircraft(super.getRequest().getData("aircraft", Aircraft.class));
+		int aircraftId = super.getRequest().getData("aircraft", int.class);
+		if (aircraftId != 0)
+			maintenanceRecord.setAircraft(this.repository.findAircraftById(aircraftId));
+		else
+			maintenanceRecord.setAircraft(null);
 
 	}
 
@@ -75,7 +80,7 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 
 	@Override
 	public void perform(final MaintenanceRecord maintenanceRecord) {
-		maintenanceRecord.setMoment(java.util.Calendar.getInstance().getTime());
+		//maintenanceRecord.setMoment(java.util.Calendar.getInstance().getTime());
 		this.repository.save(maintenanceRecord);
 	}
 
@@ -91,7 +96,8 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 		choicesStatus = SelectChoices.from(MaintenanceStatus.class, maintenanceRecord.getStatus());
 		choicesAircrafts = SelectChoices.from(aircrafts, "registrationNumber", maintenanceRecord.getAircraft());
 
-		dataset = super.unbindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost", "notes", "draftMode");
+		dataset = super.unbindObject(maintenanceRecord, "status", "inspectionDueDate", "estimatedCost", "notes", "draftMode");
+
 		dataset.put("technician", maintenanceRecord.getTechnician().getIdentity().getFullName());
 		dataset.put("aircraft", choicesAircrafts.getSelected().getKey());
 		dataset.put("aircrafts", choicesAircrafts);

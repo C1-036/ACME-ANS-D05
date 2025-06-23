@@ -39,27 +39,58 @@ public class TechnicianTaskShowService extends AbstractGuiService<Technician, Ta
 	//		super.getResponse().setAuthorised(status);
 	//	}
 
+	//	@Override
+	//	public void authorise() {
+	//		int taskId = super.getRequest().getData("id", Integer.class);
+	//		Task task = this.repository.findTaskById(taskId);
+	//
+	//		boolean isOwner = task != null && super.getRequest().getPrincipal().hasRealm(task.getTechnician());
+	//		boolean isPublished = task != null && !task.isDraftMode();
+	//
+	//		super.getResponse().setAuthorised(task != null && (isOwner || isPublished));
+	//	}
+
 
 	@Override
 	public void authorise() {
-		int taskId = super.getRequest().getData("id", int.class);
-		Task task = this.repository.findTaskById(taskId);
+		boolean status = false;
 
-		boolean isOwner = task != null && super.getRequest().getPrincipal().hasRealm(task.getTechnician());
-		boolean isPublished = task != null && !task.isDraftMode();
+		if (super.getRequest().hasData("id", Integer.class)) {
+			Integer taskId = super.getRequest().getData("id", Integer.class);
 
-		super.getResponse().setAuthorised(task != null && (isOwner || isPublished));
+			if (taskId != null) {
+				Task task = this.repository.findTaskById(taskId);
+
+				boolean isOwner = task != null && super.getRequest().getPrincipal().hasRealm(task.getTechnician());
+				boolean isPublished = task != null && !task.isDraftMode();
+
+				status = task != null && (isOwner || isPublished);
+			}
+		}
+
+		super.getResponse().setAuthorised(status);
 	}
+
+	//	@Override
+	//	public void load() {
+	//		Task task;
+	//		int id;
+	//
+	//		id = super.getRequest().getData("id", Integer.class);
+	//		task = this.repository.findTaskById(id);
+	//
+	//		super.getBuffer().addData(task);
+	//	}
 
 	@Override
 	public void load() {
-		Task task;
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
-		task = this.repository.findTaskById(id);
-
-		super.getBuffer().addData(task);
+		if (super.getRequest().hasData("id", Integer.class)) {
+			Integer id = super.getRequest().getData("id", Integer.class);
+			if (id != null) {
+				Task task = this.repository.findTaskById(id);
+				super.getBuffer().addData(task);
+			}
+		}
 	}
 
 	@Override

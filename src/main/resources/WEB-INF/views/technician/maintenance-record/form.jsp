@@ -1,30 +1,21 @@
-<%--
-- form.jsp
--
-- Copyright (C) 2012-2025 Rafael Corchuelo.
--
-- In keeping with the traditional purpose of furthering education and research, it is
-- the policy of the copyright owner to permit non-commercial use and redistribution of
-- this software. It has been tested carefully, but it is not guaranteed for any particular
-- purposes.  The copyright owner does not offer any warranties or representations, nor do
-- they accept any liabilities with respect to them.
---%>
-
 <%@page%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form> 
-	<acme:input-moment code="technician.maintenance-record.form.label.moment" path="moment" readonly="true"/>
+
+	<jstl:if test="${_command != 'create'}">
+		<acme:input-moment code="technician.maintenance-record.form.label.moment" path="moment" readonly="true"/>
+	</jstl:if>
+
 	<acme:input-select code="technician.maintenance-record.form.label.status" path="status" choices="${statuses}"/>
 	<acme:input-moment code="technician.maintenance-record.form.label.insepctionDueDate" path="inspectionDueDate"/>
 	<acme:input-money code="technician.maintenance-record.form.label.estimatedCost" path="estimatedCost"/>
 	<acme:input-textarea code="technician.maintenance-record.form.label.notes" path="notes"/>
 	<acme:input-select code="technician.maintenance-record.form.label.aircraft" path="aircraft" choices="${aircrafts}"/>
 	<acme:input-textarea code="technician.maintenance-record.form.label.technician" path="technician" readonly="true"/>
-	
-	
+
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && draftMode == false}">
 			<acme:button code="technician.maintenance-record.form.button.tasks" action="/technician/task/list?maintenanceRecordId=${id}"/>			
