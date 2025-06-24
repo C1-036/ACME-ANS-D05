@@ -22,12 +22,14 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
 import acme.client.helpers.SpringHelper;
+import acme.constraints.ValidBookingPurchaseMoment;
 import acme.entities.flights.Flight;
 import acme.features.customer.booking.CustomerBookingRepository;
 import acme.realms.Customer;
 import lombok.Getter;
 import lombok.Setter;
 
+@ValidBookingPurchaseMoment
 @Entity
 @Getter
 @Setter

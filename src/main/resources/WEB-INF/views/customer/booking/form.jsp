@@ -29,6 +29,7 @@
 			<acme:submit code="customer.booking.form.button.update" action="/customer/booking/update"/>
 			<acme:submit code="customer.booking.form.button.publish" action="/customer/booking/publish"/>
 			<acme:submit code="customer.booking.form.button.delete" action="/customer/booking/delete"/>	
+			<acme:button code="customer.booking.form.button.passenger" action="/customer/passenger/list-booking?bookingId=${id}"/>
 		</jstl:when>		
 
 		<jstl:when test="${_command == 'create'}">
@@ -36,6 +37,6 @@
 		</jstl:when>
 		
 		</jstl:choose>	
-			<acme:button code="customer.booking.form.button.passenger" action="/customer/passenger/list-booking?bookingId=${id}"/>
+			
 		
 </acme:form>
