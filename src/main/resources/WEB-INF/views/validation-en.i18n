@@ -66,5 +66,9 @@ acme.validation.customer.booking.no-associated-passenger = A booking must have a
 acme.validation.airport.confirmation.message=You must confirm this operation.
 acme.validation.airport.iataCode.duplicated = The IATA code is already in use.
 
+
 acme.validation.booking.purchase-moment.invalid = Purchase Moment is not valid
 acme.validation.customer.passenger.dateBirth.beforePurchaseMoment = Date of Birth must be before Purchase Moment
+
+acme.validation.text.message= The text must be less than 255
+
