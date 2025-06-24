@@ -1,42 +1,42 @@
 key,locatorCode,purchaseMoment,travelClass,creditCard,key:customer,key:flight,draftMode
 # base entity
-booking-00,ABC1234,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-00,ABC1234,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
 # locatorCode - standard variations
-booking-01,ABC123,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-02,AB1234,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-03,A12345,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-04,123456,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-05,ABCD12,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,false
-booking-06,ABCDE1,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-07,ABCDEF,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-08,ABCD123,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-09,ABC1238,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-10,AB12345,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-11,A123456,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-12,1234567,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-13,ABCDE12,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-14,ABCDEF1,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-15,ABCDEFG,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-16,ABCDE123,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-17,ABCD1234,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-18,ABC12345,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-19,AB123456,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-20,A1234567,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-21,12345678,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-22,ABCDEF12,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-23,ABCDEFG1,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-24,ABCDEFGH,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-01,ABC123,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-02,AB1234,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-03,A12345,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-04,123456,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-05,ABCD12,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,false
+booking-06,ABCDE1,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-07,ABCDEF,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-08,ABCD123,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-09,ABC1238,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-10,AB12345,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-11,A123456,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-12,1234567,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-13,ABCDE12,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-14,ABCDEF1,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-15,ABCDEFG,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-16,ABCDE123,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-17,ABCD1234,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-18,ABC12345,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-19,AB123456,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-20,A1234567,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-21,12345678,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-22,ABCDEF12,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-23,ABCDEFG1,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-24,ABCDEFGH,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
 # purchaseMoment - standard variations
 booking-25,ABC1456,2024/12/31 23:59,ECONOMY,0000,customer-02,flight-28,true
 booking-26,AXD3245,2000/01/01 00:00,ECONOMY,0000,customer-02,flight-28,true
 booking-27,CJS2357,2000/01/01 00:01,ECONOMY,0000,customer-02,flight-28,true
 # travelClass - standard variations
-booking-28,FXD3245,2000/01/01 00:00,BUSINESS,0000,customer-01,flight-28,true
+booking-28,FXD3245,2024/01/01 00:00,BUSINESS,0000,customer-01,flight-28,true
 # price - standard variations
-booking-29,SHD823,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
-booking-30,AFH435,2002/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-29,SHD823,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
+booking-30,AFH435,2024/03/05 18:00,ECONOMY,0000,customer-01,flight-28,true
 #credit card - standard variations
-booking-31,ADS759,2002/03/05 18:00,ECONOMY,,customer-01,flight-28,true
+booking-31,ADS759,2024/03/05 18:00,ECONOMY,,customer-01,flight-28,true
 #relations - standard variations
-booking-32,AGC1234,2002/03/05 18:00,ECONOMY,0000,customer-02,flight-29,false
-booking-33,AKC1234,2002/03/05 18:00,ECONOMY,0000,customer-02,flight-30,false
+booking-32,AGC1234,2024/03/05 18:00,ECONOMY,0000,customer-02,flight-29,false
+booking-33,AKC1234,2024/03/05 18:00,ECONOMY,0000,customer-02,flight-29,false
