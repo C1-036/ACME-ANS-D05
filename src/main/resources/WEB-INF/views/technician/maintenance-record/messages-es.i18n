@@ -35,3 +35,7 @@ technician.maintenance-record.list.button.create = Crear
 technician.maintenance-record.form.error.zero-tasks = Para publicar un registro de mantenimiento, este debe tener al menos una tarea publicada
 technician.maintenance-record.form.error.not-all-tasks-published = Para publicar un registro de mantenimiento, este debe tener todas sus tareas publicadas
 technician.maintenance-record.form.error.not-completed-status = Para publicar un registro de mantenimiento, el estado debe ser completado
+technician.maintenance-record.form.error.noStatus= El Status no puede estar vacio
+technician.maintenance-record.form.error.estimatedCost= El coste debe ser menor a 1000000
+technician.maintenance-record.form.error.notes=Las notas no pueden estar vacias y deben ser menores a 255 caracteres
+technician.maintenance-record.form.error.aircraft= Tiene que tener algún aircraft asignado

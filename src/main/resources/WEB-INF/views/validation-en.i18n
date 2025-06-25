@@ -47,6 +47,12 @@ acme.validation.flightAssignment.flightCrewMember.multipleLegs = The flight crew
 acme.validation.technician.maintenance-record.moment-before-inspection=The moment must be before the inspection due date.
 acme.validation.technician.maintenance-record.completed-in-draft=You cannot set the status to COMPLETED while the record is still in draft mode.
 acme.validation.technician.maintenance-record.positive-cost=The estimated cost must be greater than zero.
+acme.validation.technician.maintenance-record.invalid-status-transition = Invalid status transition.
+acme.validation.technician.maintenance-record.zero-tasks = Cannot move to IN_PROGRESS without tasks.
+acme.validation.technician.maintenance-record.unpublished-tasks = Cannot mark as COMPLETED if not all tasks are published.
+acme.validation.technician.maintenance-record.only-pending-on-create = A maintenance record can only be created in PENDING status.
+acme.validation.technician.maintenance-record.invalid-aircraft=You must select a valid aircraft.
+
 
 acme.validation.maintenance-record.inspection-due-date.message = The next inspection must be set after the actual maintenance takes place
 acme.validation.maintenance-record.future-inspection-due-date.message = The next inspection must be set in the future
@@ -54,6 +60,9 @@ acme.validation.maintenance-record.future-inspection-due-date.message = The next
 acme.validation.technician.task.positive-duration=The estimated duration must be greater than zero.
 acme.validation.technician.task.priority-out-of-range=The priority must be between 0 and 10.
 acme.validation.task.maintenance-record-linked.message = In order to delete a task it must not have any maintenance records linked
+
+acme.validation.technician.involves.must-select-task= You have to select a task to link
+technician.involves.form.error.no-task-to-unlink=You must select a task to unlink.
 
 
 assistanceAgent.claim.form.error.emptyLeg = You must select a flight leg for the claim.

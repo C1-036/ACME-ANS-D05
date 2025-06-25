@@ -25,6 +25,23 @@ public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService
 
 	// AbstractGuiService interface -------------------------------------------
 
+	//	@Override
+	//	public void authorise() {
+	//		boolean status;
+	//		int maintenanceRecordId;
+	//		MaintenanceRecord maintenanceRecord;
+	//		Technician technician;
+	//
+	//		status = super.getRequest().hasData("id", Integer.class);
+	//		if (status) {
+	//			maintenanceRecordId = super.getRequest().getData("id", Integer.class);
+	//			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+	//			technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
+	//			status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
+	//		}
+	//		super.getResponse().setAuthorised(status);
+	//	}
+
 
 	@Override
 	public void authorise() {

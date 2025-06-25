@@ -47,6 +47,12 @@ acme.validation.flightAssignment.flightCrewMember.multipleLegs = El miembro de t
 acme.validation.technician.maintenance-record.moment-before-inspection=El momento debe ser anterior a la fecha límite de inspección.
 acme.validation.technician.maintenance-record.completed-in-draft=No puedes establecer el estado como COMPLETADO mientras el registro aún está en modo borrador.
 acme.validation.technician.maintenance-record.positive-cost=El coste estimado debe ser mayor que cero.
+acme.validation.technician.maintenance-record.invalid-status-transition = Transición de estado no válida.
+acme.validation.technician.maintenance-record.zero-tasks = No se puede pasar a EN_PROGRESO sin tareas asignadas.
+acme.validation.technician.maintenance-record.unpublished-tasks = No se puede marcar como COMPLETADO si no están publicadas todas las tareas.
+acme.validation.technician.maintenance-record.only-pending-on-create = Un registro de mantenimiento solo puede crearse en estado PENDIENTE.
+acme.validation.technician.maintenance-record.invalid-aircraft=Debes seleccionar un aircraft válido.
+
 
 acme.validation.maintenance-record.inspection-due-date.message = La siguiente inspección debe programarse después de que se realice el mantenimiento.
 acme.validation.maintenance-record.future-inspection-due-date.message = La siguiente inspección debe programarse en el futuro.
@@ -54,6 +60,9 @@ acme.validation.maintenance-record.future-inspection-due-date.message = La sigui
 acme.validation.technician.task.positive-duration=La duración estimada debe ser mayor que cero.
 acme.validation.technician.task.priority-out-of-range=La prioridad debe estar entre 0 y 10.
 acme.validation.task.maintenance-record-linked.message = Para borrar una tarea, esta no debe tener registros de mantenimiento vinculados
+
+acme.validation.technician.involves.must-select-task= Debes seleccionar una task para linkear
+technician.involves.form.error.no-task-to-unlink=Debes seleccionar una task para unlinkear
 
 
 assistanceAgent.claim.form.error.emptyLeg = Debes seleccionar un tramo de vuelo para la reclamación.

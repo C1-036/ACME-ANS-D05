@@ -35,3 +35,7 @@ technician.maintenance-record.list.button.create = Create
 technician.maintenance-record.form.error.zero-tasks = In order to publish a maintenance record, it must have at least one published task
 technician.maintenance-record.form.error.not-all-tasks-published = In order to publish a maintenance record, it must have all it tasks published
 technician.maintenance-record.form.error.not-completed-status = In order to publish a maintenance record, the status must be completed
+technician.maintenance-record.form.error.noStatus= Status cannot be null
+technician.maintenance-record.form.error.estimatedCost= The cost have to be less than 1000000
+technician.maintenance-record.form.error.notes=Notes cannot be 0, and have to be less than 255
+technician.maintenance-record.form.error.aircraft=There have to be some aircraft assigned

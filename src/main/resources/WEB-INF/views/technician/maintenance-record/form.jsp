@@ -5,10 +5,7 @@
 
 <acme:form> 
 
-	<jstl:if test="${_command != 'create'}">
-		<acme:input-moment code="technician.maintenance-record.form.label.moment" path="moment" readonly="true"/>
-	</jstl:if>
-
+	<acme:input-moment code="technician.maintenance-record.form.label.moment" path="moment" readonly="true"/>
 	<acme:input-select code="technician.maintenance-record.form.label.status" path="status" choices="${statuses}"/>
 	<acme:input-moment code="technician.maintenance-record.form.label.insepctionDueDate" path="inspectionDueDate"/>
 	<acme:input-money code="technician.maintenance-record.form.label.estimatedCost" path="estimatedCost"/>

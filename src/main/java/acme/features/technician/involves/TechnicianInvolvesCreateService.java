@@ -60,23 +60,28 @@ public class TechnicianInvolvesCreateService extends AbstractGuiService<Technici
 	public void authorise() {
 		boolean status = false;
 		boolean statusTask = true;
-		int maintenanceRecordId;
-		Integer taskId;
 		Task task = null;
-		MaintenanceRecord maintenanceRecord;
-		Technician technician;
 
-		technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
-		maintenanceRecordId = super.getRequest().getData("maintenanceRecordId", int.class);
-		maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
-		taskId = super.getRequest().hasData("task", int.class) ? super.getRequest().getData("task", int.class) : null;
+		if (super.getRequest().hasData("maintenanceRecordId", int.class)) {
+			int maintenanceRecordId = super.getRequest().getData("maintenanceRecordId", int.class);
+			MaintenanceRecord maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
 
-		if (taskId != null) {
-			task = this.repository.findTaskById(taskId);
-			statusTask = task != null && (!task.isDraftMode() || task.getTechnician().equals(technician));
+			if (maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician())) {
+
+				status = true;
+
+				// Sólo en POST, validar la task si se ha enviado
+				if (super.getRequest().getMethod().equalsIgnoreCase("POST"))
+					if (super.getRequest().hasData("task", Integer.class)) {
+						Integer taskId = super.getRequest().getData("task", Integer.class);
+						if (taskId != 0) {
+							task = this.repository.findTaskById(taskId);
+							Technician technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
+							statusTask = task != null && (!task.isDraftMode() || task.getTechnician().equals(technician));
+						}
+					}
+			}
 		}
-
-		status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician());
 
 		super.getResponse().setAuthorised(status && statusTask);
 	}
@@ -105,7 +110,8 @@ public class TechnicianInvolvesCreateService extends AbstractGuiService<Technici
 
 	@Override
 	public void validate(final Involves involves) {
-		;
+		if (involves.getTask() == null)
+			super.state(false, "task", "acme.validation.technician.involves.must-select-task");
 	}
 
 	@Override
