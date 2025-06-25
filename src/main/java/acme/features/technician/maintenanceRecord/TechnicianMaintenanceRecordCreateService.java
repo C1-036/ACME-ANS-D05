@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
@@ -27,16 +28,15 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 
 	@Override
 	public void authorise() {
+
 		boolean status = true;
-		int aircraftId;
-		Aircraft aircraft;
 
-		if (super.getRequest().hasData("aircraft", int.class)) {
-			aircraftId = super.getRequest().getData("aircraft", int.class);
-			aircraft = this.repository.findAircraftById(aircraftId);
-
-			if (aircraft == null && aircraftId != 0)
-				status = false;
+		if (super.getRequest().hasData("id") && super.getRequest().getData("aircraft", int.class) != 0) {
+			int aircraftId = super.getRequest().getData("aircraft", int.class);
+			Aircraft a = this.repository.findAircraftById(aircraftId);
+			status = a != null;
+			@SuppressWarnings("unused")
+			MaintenanceStatus maintenanceRecordStatus = super.getRequest().getData("status", MaintenanceStatus.class);
 		}
 
 		super.getResponse().setAuthorised(status);
@@ -50,7 +50,7 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 		technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 
 		maintenanceRecord = new MaintenanceRecord();
-		maintenanceRecord.setMoment(java.util.Calendar.getInstance().getTime());
+		maintenanceRecord.setMoment(MomentHelper.getCurrentMoment());
 		maintenanceRecord.setDraftMode(true);
 		maintenanceRecord.setTechnician(technician);
 
@@ -61,26 +61,22 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 	public void bind(final MaintenanceRecord maintenanceRecord) {
 
 		super.bindObject(maintenanceRecord, "status", "inspectionDueDate", "estimatedCost", "notes");
-
-		//super.bindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost", "notes");
-
-		//maintenanceRecord.setAircraft(super.getRequest().getData("aircraft", Aircraft.class));
-		int aircraftId = super.getRequest().getData("aircraft", int.class);
-		if (aircraftId != 0)
-			maintenanceRecord.setAircraft(this.repository.findAircraftById(aircraftId));
-		else
-			maintenanceRecord.setAircraft(null);
+		maintenanceRecord.setAircraft(super.getRequest().getData("aircraft", Aircraft.class));
 
 	}
 
 	@Override
 	public void validate(final MaintenanceRecord maintenanceRecord) {
-		;
+		if (!this.getBuffer().getErrors().hasErrors("inspectionDueDate") && maintenanceRecord.getInspectionDueDate() != null)
+			super.state(maintenanceRecord.getInspectionDueDate().after(maintenanceRecord.getMoment()), "inspectionDueDate", "acme.validation.technician.maintenance-record.moment-before-inspection", maintenanceRecord);
+
+		if (!this.getBuffer().getErrors().hasErrors("status") && maintenanceRecord.getStatus() != null)
+			super.state(maintenanceRecord.getStatus() == MaintenanceStatus.PENDING, "status", "acme.validation.technician.maintenance-record.only-pending-on-create", maintenanceRecord);
+
 	}
 
 	@Override
 	public void perform(final MaintenanceRecord maintenanceRecord) {
-		//maintenanceRecord.setMoment(java.util.Calendar.getInstance().getTime());
 		this.repository.save(maintenanceRecord);
 	}
 
@@ -96,7 +92,7 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 		choicesStatus = SelectChoices.from(MaintenanceStatus.class, maintenanceRecord.getStatus());
 		choicesAircrafts = SelectChoices.from(aircrafts, "registrationNumber", maintenanceRecord.getAircraft());
 
-		dataset = super.unbindObject(maintenanceRecord, "status", "inspectionDueDate", "estimatedCost", "notes", "draftMode");
+		dataset = super.unbindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost", "notes", "draftMode");
 
 		dataset.put("technician", maintenanceRecord.getTechnician().getIdentity().getFullName());
 		dataset.put("aircraft", choicesAircrafts.getSelected().getKey());

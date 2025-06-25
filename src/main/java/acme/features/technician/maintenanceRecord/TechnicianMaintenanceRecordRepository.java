@@ -11,6 +11,7 @@ import acme.entities.aircraft.Aircraft;
 import acme.entities.technicians.Involves;
 import acme.entities.technicians.MaintenanceRecord;
 import acme.entities.technicians.Task;
+import acme.realms.Technician;
 
 @Repository
 public interface TechnicianMaintenanceRecordRepository extends AbstractRepository {
@@ -35,4 +36,14 @@ public interface TechnicianMaintenanceRecordRepository extends AbstractRepositor
 
 	@Query("select a from Aircraft a where a.id = :id")
 	Aircraft findAircraftById(int id);
+
+	@Query("select count(i) from Involves i where i.maintenanceRecord.id = :maintenanceRecordId")
+	int countTasksByMaintenanceRecordId(int maintenanceRecordId);
+
+	@Query("select count(t) = sum(case when t.draftMode = false then 1 else 0 end) from Involves i join i.task t where i.maintenanceRecord.id = :maintenanceRecordId")
+	boolean areAllTasksPublished(int maintenanceRecordId);
+
+	@Query("select t from Technician t where t.userAccount.id = :userAccountId")
+	Technician findOneTechnicianByUserAccountId(int userAccountId);
+
 }

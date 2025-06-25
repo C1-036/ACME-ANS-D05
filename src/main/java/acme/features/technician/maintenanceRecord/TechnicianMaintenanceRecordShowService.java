@@ -24,21 +24,40 @@ public class TechnicianMaintenanceRecordShowService extends AbstractGuiService<T
 
 	// AbstractGuiService interface -------------------------------------------
 
+	//	@Override
+	//	public void authorise() {
+	//
+	//		boolean status;
+	//		int masterId;
+	//		MaintenanceRecord maintenanceRecord;
+	//
+	//		status = super.getRequest().hasData("id", int.class);
+	//
+	//		if (status) {
+	//			masterId = super.getRequest().getData("id", int.class);
+	//			maintenanceRecord = this.repository.findMaintenanceRecordById(masterId);
+	//			status = maintenanceRecord != null && (super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician()) || !maintenanceRecord.isDraftMode());
+	//		}
+	//		super.getResponse().setAuthorised(status);
+	//	}
+
 
 	@Override
 	public void authorise() {
+		boolean status = false;
 
-		boolean status;
-		int masterId;
-		MaintenanceRecord maintenanceRecord;
+		if (super.getRequest().hasData("id", int.class)) {
+			int recordId = super.getRequest().getData("id", int.class);
+			MaintenanceRecord record = this.repository.findMaintenanceRecordById(recordId);
 
-		status = super.getRequest().hasData("id", int.class);
+			if (record != null) {
+				boolean isOwner = super.getRequest().getPrincipal().hasRealm(record.getTechnician());
+				boolean isPublished = !record.isDraftMode();
 
-		if (status) {
-			masterId = super.getRequest().getData("id", int.class);
-			maintenanceRecord = this.repository.findMaintenanceRecordById(masterId);
-			status = maintenanceRecord != null && (super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician()) || !maintenanceRecord.isDraftMode());
+				status = isOwner || isPublished;
+			}
 		}
+
 		super.getResponse().setAuthorised(status);
 	}
 
