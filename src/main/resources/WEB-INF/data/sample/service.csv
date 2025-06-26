@@ -1,45 +1,39 @@
-key,name,picture,avgDwellTime,promoCode,money
-#base entity
-service1,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,FREE-25,50.00
-#name standard variations
-service2,L,http://lorem.com/ipsum,50.00,ABCD-25,50.00
-service3,Lo,http://lorem.com/ipsum,50.00,ABCE-25,50.00
-service4,"Lorem ipsum dolor sit amet, consectetur adipiscin",http://lorem.com/ipsum,50.00,ADCV-25,50.00
-service5,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,50.00,ABCT-25,50.00
-service6,โลเร็ม อิปซัม,http://lorem.com/ipsum,50.00,ADFG-25,50.00
-service7,لوريم إيبسوم,http://lorem.com/ipsum,50.00,ADFK-25,50.00
-service8,洛伦·伊普森,http://lorem.com/ipsum,50.00,FVEV-25,50.00
-service9,<marquee>Hacked</marquee>,http://lorem.com/ipsum,50.00,VDGH-25,50.00
-service10,<script>alert(‘Hacked!’),http://lorem.com/ipsum,50.00,SGBT-25,50.00
-service11,' or 'A' = 'A,http://lorem.com/ipsum,50.00,STNJ-25,50.00
-#picture standard variations
-service12,Lorem ipsum dolor sit ame,https://acme.com/a,50.00,DSGT-25,50.00
-service13,Lorem ipsum dolor sit ame,https://a.b,50.00,FSTG-25,50.00
-service14,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit/amet/consectetur/adipiscing/elit/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/,50.00,FRSV-25,50.00
-service15,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit/amet/consectetur/adipiscing/elit/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X,50.00,FKAB-25,50.00
-service16,Lorem ipsum dolor sit ame,https://www.lorem-ipsum.org,50.00,FRAS-25,50.00
-service17,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org,50.00,FRAD-25,50.00
-service18,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit.html,50.00,FRAF-25,50.00
-service19,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit.html#dolor,50.00,FRAG-25,50.00
-service20,Lorem ipsum dolor sit ame,http://example.org?a=1&b=2,50.00,FRAH-25,50.00
-service21,Lorem ipsum dolor sit ame,http://example.org?,50.00,FRAJ-25,50.00
-service22,Lorem ipsum dolor sit ame,http://example.org?a,50.00,FRAK-25,50.00
-service23,Lorem ipsum dolor sit ame,http://example.org?a&b,50.00,FRAL-25,50.00
-service24,Lorem ipsum dolor sit ame,http://example.org/,50.00,FRAZ-25,50.00
-service25,Lorem ipsum dolor sit ame,http://example.org/a,50.00,FRAX-25,50.00
-service26,Lorem ipsum dolor sit ame,http://example.org/a/b,50.00,FRAC-25,50.00
-service27,Lorem ipsum dolor sit ame,http://example.org/a/b?,50.00,FRAV-25,50.00
-service28,Lorem ipsum dolor sit ame,http://example.org/a/b?a&b,50.00,FRAB-25,50.00
-#avgDwellTime standard variations
-service29,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,0.00,FRAN-25,50.00
-service30,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,0.01,FRAM-25,50.00
-service31,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,99.99,FRAQ-25,50.00
-service32,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,100.00,FRAW-25,50.00
-#promoCode standard variations
-service33,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,100.00,,50.00
-#money standard variations
-service34,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,FRAR-25,0.00
-service35,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,FRAT-25,
-service36,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,FRAY-25,0.01
-service37,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,FRAU-25,99.99
-service38,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,FRAI-25,100.00
+key,name,picture,averageDwellTime,promoCode,money,key:airport
+service1,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,FREE-25,EUR 50.00,airport-01
+service2,L,http://lorem.com/ipsum,50.00,ABCD-25,EUR 50.00,airport-01
+service3,Lo,http://lorem.com/ipsum,50.00,ABCE-25,EUR 50.00,airport-01
+service4,"Lorem ipsum dolor sit amet, consectetur adipiscin",http://lorem.com/ipsum,50.00,ADCV-25,EUR 50.00,airport-01
+service5,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,50.00,ABCT-25,EUR 50.00,airport-01
+service6,โลเร็ม อิปซัม,http://lorem.com/ipsum,50.00,ADFG-25,EUR 50.00,airport-01
+service7,لوريم إيبسوم,http://lorem.com/ipsum,50.00,ADFK-25,EUR 50.00,airport-01
+service8,洛伦·伊普森,http://lorem.com/ipsum,50.00,FVEV-25,EUR 50.00,airport-01
+service9,<marquee>Hacked</marquee>,http://lorem.com/ipsum,50.00,VDGH-25,EUR 50.00,airport-01
+service10,<script>alert(‘Hacked!’),http://lorem.com/ipsum,50.00,SGBT-25,EUR 50.00,airport-01
+service11,' or 'A' = 'A,http://lorem.com/ipsum,50.00,STNJ-25,EUR 50.00,airport-01
+service12,Lorem ipsum dolor sit ame,https://acme.com/a,50.00,DSGT-25,EUR 50.00,airport-01
+service13,Lorem ipsum dolor sit ame,https://a.b,50.00,FSTG-25,EUR 50.00,airport-01
+service14,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit/amet/consectetur/adipiscing/elit/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/,50.00,FRSV-25,EUR 50.00,airport-01
+service15,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit/amet/consectetur/adipiscing/elit/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X,50.00,FKAB-25,EUR 50.00,airport-01
+service16,Lorem ipsum dolor sit ame,https://www.lorem-ipsum.org,50.00,FRAS-25,EUR 50.00,airport-01
+service17,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org,50.00,FRAD-25,EUR 50.00,airport-01
+service18,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit.html,50.00,FRAF-25,EUR 50.00,airport-01
+service19,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit.html#dolor,50.00,FRAG-25,EUR 50.00,airport-01
+service20,Lorem ipsum dolor sit ame,http://example.org?a=1&b=2,50.00,FRAH-25,EUR 50.00,airport-01
+service21,Lorem ipsum dolor sit ame,http://example.org?,50.00,FRAJ-25,EUR 50.00,airport-01
+service22,Lorem ipsum dolor sit ame,http://example.org?a,50.00,FRAK-25,EUR 50.00,airport-01
+service23,Lorem ipsum dolor sit ame,http://example.org?a&b,50.00,FRAL-25,EUR 50.00,airport-01
+service24,Lorem ipsum dolor sit ame,http://example.org/,50.00,FRAZ-25,EUR 50.00,airport-01
+service25,Lorem ipsum dolor sit ame,http://example.org/a,50.00,FRAX-25,EUR 50.00,airport-01
+service26,Lorem ipsum dolor sit ame,http://example.org/a/b,50.00,FRAC-25,EUR 50.00,airport-01
+service27,Lorem ipsum dolor sit ame,http://example.org/a/b?,50.00,FRAV-25,EUR 50.00,airport-01
+service28,Lorem ipsum dolor sit ame,http://example.org/a/b?a&b,50.00,FRAB-25,EUR 50.00,airport-01
+service29,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,0.00,FRAN-25,EUR 50.00,airport-01
+service30,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,0.01,FRAM-25,EUR 50.00,airport-01
+service31,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,99.99,FRAQ-25,EUR 50.00,airport-01
+service32,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,100.00,FRAW-25,EUR 50.00,airport-01
+service33,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,100.00,,EUR 50.00,airport-01
+service34,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,FRAR-25,EUR 0.00,airport-01
+service35,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,FRAT-25,,airport-01
+service36,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,FRAY-25,EUR 0.01,airport-01
+service37,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,FRAU-25,EUR 99.99,airport-01
+service38,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,FRAI-25,EUR 100.00,airport-01

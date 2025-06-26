@@ -11,12 +11,17 @@
 --%>
 
 <%@page%>
-
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:footer-panel>
+
+	<acme:footer-subpanel code="master.footer.label.random-service">
+		<img src="http://lorem.com/ipsum" alt="<acme:print code='master.footer.alt.random-service'/>"
+			 class="img-fluid rounded" style="max-height: 100px; display: block; margin: 0 auto;" />
+	</acme:footer-subpanel>
+
 	<acme:footer-subpanel code="master.footer.title.about">
 		<acme:footer-option icon="fa fa-building" code="master.footer.label.company" action="/any/system/company"/>
 		<acme:footer-option icon="fa fa-file" code="master.footer.label.license" action="/any/system/license"/>
@@ -38,3 +43,5 @@
 		<acme:footer-copyright code="master.company.name"/>
 	</acme:footer-logo>
 </acme:footer-panel>
+
+

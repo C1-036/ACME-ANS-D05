@@ -66,8 +66,14 @@ acme.validation.customer.booking.no-associated-passenger = La reserva debe tener
 acme.validation.airport.confirmation.message=Debe confirmar esta operación.
 acme.validation.airport.iataCode.duplicated = El código IATA ya está en uso.
 
-acme.validation.text.message= El texto debe ser menor a
- 255
+acme.validation.text.message= El texto debe ser menor a 255
 
 acme.validation.booking.purchase-moment.invalid = Momento de compra no valido
 acme.validation.customer.passenger.dateBirth.beforePurchaseMoment = La fecha de nacimiento debe ser antes que el momento de compra.
+
+acme.validation.service.pictureLink.error.required=El enlace de la imagen no puede estar vacío.
+acme.validation.service.pictureLink.error.invalid=El enlace de la imagen debe ser una URL válida.
+
+acme.validation.service.duplicated-promotionCode.message=El código promocional debe ser único.
+acme.validation.promotion-code.message=El código promocional debe tener el formato ABCD-25, donde 25 es el año actual.
+
