@@ -81,3 +81,15 @@ acme.validation.customer.passenger.dateBirth.beforePurchaseMoment = Date of Birt
 
 acme.validation.text.message= The text must be less than 255
 
+service.pictureLink.error.required=The picture link must not be empty.
+service.pictureLink.error.invalid=The picture link must be a valid URL.
+
+acme.validation.service.duplicated-promotionCode.message=The promotion code must be unique.
+acme.validation.promotion-code.message=The promotion code must have the format ABCD-25, where 25 is the current year.
+
+acme.validation.service.pictureLink.error.required=El enlace de la imagen no puede estar vacío.
+acme.validationservice.pictureLink.error.invalid=El enlace de la imagen debe ser una URL válida.
+
+acme.validation.service.duplicated-promotionCode.message=El código promocional debe ser único.
+acme.validation.promotion-code.message=El código promocional debe tener el formato ABCD-25, donde 25 es el año actual.
+

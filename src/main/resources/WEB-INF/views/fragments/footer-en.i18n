@@ -19,4 +19,6 @@ master.footer.label.twitter = Twitter
 master.footer.title.languages = Languages
 master.footer.label.english = English
 master.footer.label.spanish = Spanish
+master.footer.label.random-service = Random service
+master.footer.alt.random-service = Image of a promoted service
 
