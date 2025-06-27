@@ -12,14 +12,14 @@ import acme.features.airlinemanager.AirlineManagerRepository;
 import acme.realms.AirlineManager;
 
 @Validator
-public class AirlineManagerValidator extends AbstractValidator<ValidAirlineManager, AirlineManager> {
+public class AirlineManagerValidator extends AbstractValidator<ValidIdentifierAirlineManager, AirlineManager> {
 
 	@Autowired
 	private AirlineManagerRepository repository;
 
 
 	@Override
-	protected void initialise(final ValidAirlineManager annotation) {
+	protected void initialise(final ValidIdentifierAirlineManager annotation) {
 		assert annotation != null;
 	}
 

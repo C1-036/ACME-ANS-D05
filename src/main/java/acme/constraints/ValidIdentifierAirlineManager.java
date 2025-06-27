@@ -9,10 +9,12 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-@Target(ElementType.TYPE)
+@Target({
+	ElementType.TYPE
+})
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = AirlineManagerValidator.class)
-public @interface ValidAirlineManager {
+public @interface ValidIdentifierAirlineManager {
 
 	String message() default "";
 
