@@ -2,11 +2,13 @@
 package acme.features.airlinemanager.leg;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
@@ -64,7 +66,32 @@ public class AirlineManagerLegPublishService extends AbstractGuiService<AirlineM
 
 	@Override
 	public void validate(final Leg leg) {
-		;
+		if (!super.getBuffer().getErrors().hasErrors("scheduledDeparture")) {
+			boolean isPastOrPresent = MomentHelper.isPresentOrPast(leg.getScheduledDeparture());
+			super.state(!isPastOrPresent, "scheduledDeparture", "acme.validation.airline-manager.leg.departure-in-the-past");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("scheduledArrival")) {
+			boolean isPastOrPresent = MomentHelper.isPresentOrPast(leg.getScheduledArrival());
+			super.state(!isPastOrPresent, "scheduledArrival", "acme.validation.airline-manager.leg.arrival-in-the-past");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("arrivalAirport") && !super.getBuffer().getErrors().hasErrors("departureAirport")) {
+			boolean sameAirport = leg.getDepartureAirport().equals(leg.getArrivalAirport());
+			super.state(!sameAirport, "arrivalAirport", "acme.validation.airline-manager.leg.departure-equals-arrival");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("departureAirport")) {
+			int flightId = leg.getFlight().getId();
+			int legId = leg.getId();
+			List<Leg> previousLegs = this.repository.findPreviousLeg(flightId, legId);
+			Leg previousLeg = previousLegs.isEmpty() ? null : previousLegs.get(0);
+
+			if (previousLeg != null) {
+				boolean isConnected = previousLeg.getArrivalAirport().equals(leg.getDepartureAirport());
+				super.state(isConnected, "departureAirport", "acme.validation.airline-manager.leg.not-connected-to-previous");
+			}
+		}
 	}
 
 	@Override

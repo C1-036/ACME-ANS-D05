@@ -46,7 +46,7 @@ public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineMa
 
 			boolean validDep = depId == 0 || this.repository.findAirportById(depId) != null;
 			boolean validArr = arrId == 0 || this.repository.findAirportById(arrId) != null;
-			boolean validPlane = planeId == 0 || this.repository.existsAircraftOfManager(managerId, planeId);
+			boolean validPlane = planeId == 0 || this.repository.existsAircraftOfManager(managerId, planeId) || this.repository.findAircraftById(planeId) != null;
 
 			status = validDep && validArr && validPlane;
 		}
