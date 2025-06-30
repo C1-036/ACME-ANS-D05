@@ -25,19 +25,35 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 
 	// AbstractGuiService interface -------------------------------------------
 
+	//	@Override
+	//	public void authorise() {
+	//
+	//		boolean status = true;
+	//
+	//		if (super.getRequest().hasData("id") && super.getRequest().getData("aircraft", int.class) != 0) {
+	//			int aircraftId = super.getRequest().getData("aircraft", int.class);
+	//			Aircraft a = this.repository.findAircraftById(aircraftId);
+	//			status = a != null;
+	//			@SuppressWarnings("unused")
+	//			MaintenanceStatus maintenanceRecordStatus = super.getRequest().getData("status", MaintenanceStatus.class);
+	//		}
+	//
+	//		super.getResponse().setAuthorised(status);
+	//	}
+
 
 	@Override
 	public void authorise() {
-
 		boolean status = true;
 
-		if (super.getRequest().hasData("id") && super.getRequest().getData("aircraft", int.class) != 0) {
-			int aircraftId = super.getRequest().getData("aircraft", int.class);
-			Aircraft a = this.repository.findAircraftById(aircraftId);
-			status = a != null;
-			@SuppressWarnings("unused")
-			MaintenanceStatus maintenanceRecordStatus = super.getRequest().getData("status", MaintenanceStatus.class);
-		}
+		if (super.getRequest().getMethod().equalsIgnoreCase("POST"))
+			if (super.getRequest().hasData("aircraft", int.class)) {
+				int aircraftId = super.getRequest().getData("aircraft", int.class);
+				if (aircraftId > 0) {
+					Aircraft aircraft = this.repository.findAircraftById(aircraftId);
+					status = aircraft != null;
+				}
+			}
 
 		super.getResponse().setAuthorised(status);
 	}
