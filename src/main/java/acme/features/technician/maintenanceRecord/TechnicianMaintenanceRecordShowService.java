@@ -41,6 +41,25 @@ public class TechnicianMaintenanceRecordShowService extends AbstractGuiService<T
 	//		super.getResponse().setAuthorised(status);
 	//	}
 
+	//	@Override
+	//	public void authorise() {
+	//		boolean status = false;
+	//
+	//		if (super.getRequest().hasData("id", int.class)) {
+	//			int recordId = super.getRequest().getData("id", int.class);
+	//			MaintenanceRecord record = this.repository.findMaintenanceRecordById(recordId);
+	//
+	//			if (record != null) {
+	//				boolean isOwner = super.getRequest().getPrincipal().hasRealm(record.getTechnician());
+	//				boolean isPublished = !record.isDraftMode();
+	//
+	//				status = isOwner || isPublished;
+	//			}
+	//		}
+	//
+	//		super.getResponse().setAuthorised(status);
+	//	}
+
 
 	@Override
 	public void authorise() {
@@ -54,7 +73,8 @@ public class TechnicianMaintenanceRecordShowService extends AbstractGuiService<T
 				boolean isOwner = super.getRequest().getPrincipal().hasRealm(record.getTechnician());
 				boolean isPublished = !record.isDraftMode();
 
-				status = isOwner || isPublished;
+				// Solo permitir si está publicado o si está en borrador y eres el dueño
+				status = isPublished || isOwner && record.isDraftMode();
 			}
 		}
 
