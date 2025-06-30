@@ -49,7 +49,7 @@ public class CustomerMakeCreateService extends AbstractGuiService<Customer, Make
 			int passengerId = super.getRequest().getData("passenger", int.class);
 
 			if (passengerId != 0)
-				isPassengerAccessible = this.repository.isAccessiblePassenger(passengerId, currentCustomer.getId()) && !this.repository.isLinkedPassenger(passengerId, bookingId) && this.repository.isBirthDateValid(passengerId, booking);
+				isPassengerAccessible = this.repository.isAccessiblePassenger(passengerId, currentCustomer.getId()) && !this.repository.isLinkedPassenger(passengerId, bookingId);
 			else
 				isPassengerAccessible = true;
 		} else
