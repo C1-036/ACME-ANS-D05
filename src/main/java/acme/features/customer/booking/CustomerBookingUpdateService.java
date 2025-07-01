@@ -43,6 +43,12 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 			else
 
 				isFlightAccessible = true;
+		} else {
+			Flight assignedFlight = booking != null ? booking.getFlight() : null;
+			if (assignedFlight != null)
+				isFlightAccessible = this.repository.isFlightPublished(assignedFlight.getId(), currentDate);
+			else
+				isFlightAccessible = true;
 		}
 
 		Customer current = (Customer) super.getRequest().getPrincipal().getActiveRealm();
@@ -50,6 +56,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 		super.getResponse().setAuthorised(status);
 	}
+
 	@Override
 	public void load() {
 		Booking booking;
@@ -73,6 +80,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		super.bindObject(booking, "locatorCode", "travelClass", "creditCard");
 
 		booking.setFlight(flight);
+		super.getResponse().addGlobal("flightId", flightId);
 	}
 
 	@Override
