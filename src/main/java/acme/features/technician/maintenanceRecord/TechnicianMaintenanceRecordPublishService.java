@@ -60,23 +60,52 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 	//		super.getResponse().setAuthorised(status && statusAircraft);
 	//	}
 
+	//		@Override
+	//		public void authorise() {
+	//			boolean status = false;
+	//			boolean statusAircraft = true;
+	//			MaintenanceRecord maintenanceRecord;
+	//			Aircraft aircraft;
+	//	
+	//			if (super.getRequest().hasData("id", int.class)) {
+	//				int maintenanceRecordId = super.getRequest().getData("id", int.class);
+	//				maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+	//	
+	//				if (maintenanceRecord != null) {
+	//					Technician technician = maintenanceRecord.getTechnician();
+	//					boolean isDraft = maintenanceRecord.isDraftMode();
+	//					boolean isTechnician = super.getRequest().getPrincipal().hasRealm(technician);
+	//					status = isDraft && isTechnician;
+	//				}
+	//			}
+	//	
+	//			if (super.getRequest().hasData("aircraft", int.class)) {
+	//				int aircraftId = super.getRequest().getData("aircraft", int.class);
+	//				if (aircraftId != 0) {
+	//					aircraft = this.repository.findAircraftById(aircraftId);
+	//					statusAircraft = aircraft != null;
+	//				}
+	//			}
+	//	
+	//			super.getResponse().setAuthorised(status && statusAircraft);
+	//		}
+
 
 	@Override
 	public void authorise() {
 		boolean status = false;
-		boolean statusAircraft = true;
+		boolean aircraftValid = true;
+		int id;
 		MaintenanceRecord maintenanceRecord;
 		Aircraft aircraft;
 
 		if (super.getRequest().hasData("id", int.class)) {
-			int maintenanceRecordId = super.getRequest().getData("id", int.class);
-			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+			id = super.getRequest().getData("id", int.class);
+			maintenanceRecord = this.repository.findMaintenanceRecordById(id);
 
 			if (maintenanceRecord != null) {
-				Technician technician = maintenanceRecord.getTechnician();
-				boolean isDraft = maintenanceRecord.isDraftMode();
-				boolean isTechnician = super.getRequest().getPrincipal().hasRealm(technician);
-				status = isDraft && isTechnician;
+				boolean isOwner = super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician());
+				status = isOwner;
 			}
 		}
 
@@ -84,11 +113,11 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 			int aircraftId = super.getRequest().getData("aircraft", int.class);
 			if (aircraftId != 0) {
 				aircraft = this.repository.findAircraftById(aircraftId);
-				statusAircraft = aircraft != null;
+				aircraftValid = aircraft != null;
 			}
 		}
 
-		super.getResponse().setAuthorised(status && statusAircraft);
+		super.getResponse().setAuthorised(status && aircraftValid);
 	}
 
 	@Override
@@ -120,7 +149,7 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 
 		Collection<Task> tasks = this.repository.findTasksByMaintenanceRecordId(maintenanceRecord.getId());
 
-		super.state(!tasks.isEmpty(), "*", "technician.maintenance-record.form.error.zero-tasks");
+		//super.state(!tasks.isEmpty(), "*", "technician.maintenance-record.form.error.zero-tasks");
 
 		boolean hasUnpublishedTask = tasks.stream().anyMatch(Task::isDraftMode);
 		super.state(!hasUnpublishedTask, "*", "technician.maintenance-record.form.error.not-all-tasks-published");
