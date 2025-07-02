@@ -28,6 +28,8 @@ acme.validation.airline-manager.leg.legs-not-connected                     = Los
 acme.validation.airline-manager.leg.status.required                        = Debe seleccionar un estado de segmento de vuelo.
 acme.validation.airline-manager.leg.departure-in-the-past                  = La salida programada no puede ser en el pasado
 acme.validation.airline-manager.leg.arrival-in-the-past					   = La llegada debe establecerse en el futuro.
+acme.validation.airlinemanager.leg.aircraft-under-maintenance			   = La aeronave seleccionada se encuentra en mantenimiento y no puede asignarse al tramo.
+
 
 
 acme.validation.leg.flight-number.format.message 						   = El número de vuelo debe comenzar con el código IATA de la aerolínea seguido de 4 dígitos.
