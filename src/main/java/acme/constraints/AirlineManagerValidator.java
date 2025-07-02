@@ -12,55 +12,42 @@ import acme.features.airlinemanager.AirlineManagerRepository;
 import acme.realms.AirlineManager;
 
 @Validator
-public class AirlineManagerValidator extends AbstractValidator<ValidIdentifierAirlineManager, AirlineManager> {
+public class AirlineManagerValidator extends AbstractValidator<ValidAirlineManager, AirlineManager> {
 
 	@Autowired
 	private AirlineManagerRepository repository;
 
 
 	@Override
-	protected void initialise(final ValidIdentifierAirlineManager annotation) {
+	protected void initialise(final ValidAirlineManager annotation) {
 		assert annotation != null;
 	}
 
 	@Override
 	public boolean isValid(final AirlineManager airlineManager, final ConstraintValidatorContext context) {
-		assert context != null;
-
-		boolean result;
-
 		if (airlineManager == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
-			DefaultUserIdentity identity = airlineManager.getIdentity();
+			DefaultUserIdentity id = airlineManager.getIdentity();
+			if (id != null && id.getName() != null && id.getSurname() != null) {
 
-			if (identity != null && identity.getName() != null && identity.getSurname() != null) {
-				String name = identity.getName().trim();
-				String surname = identity.getSurname().trim();
-
-				char nameInitial = name.charAt(0);
-				char surnameInitial = surname.split(" ")[0].charAt(0);
-
-				String expectedPrefix = "" + nameInitial + surnameInitial;
+				String name = id.getName().trim();
+				String surname = id.getSurname().trim().split(" ")[0];
+				String expectedPrefix = "" + name.charAt(0) + surname.charAt(0);
 				String identifier = airlineManager.getIdentifierNumber();
 
-				boolean matchesPattern = identifier != null && identifier.matches("^[A-Z]{2,3}\\d{6}$");
+				// 1) Prefijo
 				boolean startsWithPrefix = identifier != null && identifier.startsWith(expectedPrefix);
+				super.state(context, startsWithPrefix, "identifierNumber", "acme.validation.airline-manager.identifier.prefix.message");
 
-				// Verificamos si ya existe otro manager con el mismo identifier
-				boolean alreadyExists = this.repository.existsByIdentifierNumber(identifier);
-				AirlineManager existing = this.repository.findByIdentifierNumber(identifier);
-
-				// Es válido si no existe o si existe pero es el mismo
-				boolean isUnique = !alreadyExists || existing != null && existing.getId() == airlineManager.getId();
-
-				boolean isValidIdentifier = matchesPattern && startsWithPrefix && isUnique;
-
-				super.state(context, isValidIdentifier, "identifierNumber", "acme.validation.airline-manager.flight.identifier-number.invalid.message");
+				// 2) Unicidad
+				boolean exists = identifier != null && this.repository.existsByIdentifierNumber(identifier);
+				AirlineManager existing = exists ? this.repository.findByIdentifierNumber(identifier) : null;
+				boolean isUnique = !exists || existing != null && existing.getId() == airlineManager.getId();
+				super.state(context, isUnique, "identifierNumber", "acme.validation.airline-manager.identifier.unique.message");
 			}
 		}
-
-		result = !super.hasErrors(context);
-		return result;
+		return !super.hasErrors(context);
 	}
+
 }
