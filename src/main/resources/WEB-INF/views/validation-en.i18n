@@ -28,6 +28,8 @@ acme.validation.airline-manager.leg.legs-not-connected                     = The
 acme.validation.airline-manager.leg.status.required                        = You must select a flight segment status.
 acme.validation.airline-manager.leg.departure-in-the-past                  = The scheduled departure cannot be in the past
 acme.validation.airline-manager.leg.arrival-in-the-past					   = Arrival must be set in the future
+acme.validation.airlinemanager.leg.aircraft-under-maintenance			   = The selected aircraft is currently under maintenance and cannot be assigned to this leg.
+
 
 
 acme.validation.leg.flight-number.format.message     					   = The flight number must start with the airline's IATA code followed by 4 digits.
