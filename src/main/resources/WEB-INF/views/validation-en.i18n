@@ -8,13 +8,15 @@
 # purposes. The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-acme.validation.airline-manager.flight.identifier-number.invalid.message   = The identifier must begin with your initials, follow the required format, and not already be in use.
+acme.validation.airline-manager.identifier.message 						   = The identifier must have 2–3 uppercase letters followed by 6 digits.
+acme.validation.airline-manager.identifier.prefix.message 				   = The identifier must begin with your initials.
+acme.validation.airline-manager.identifier.unique.message 				   = That identifier is already in use.
 acme.validation.airline-manager.flight.delete-has-assignments			   = The flight cannot be deleted because there are crew members assigned to its legs.
 acme.validation.airline-manager.flight.no-legs							   = A flight cannot be published without legs.
 acme.validation.airline-manager.flight.legs-not-published				   = All legs must be published before publishing the flight.
 acme.validation.airline-manager.flight.invalid-selfTransfer 			   = Self-transfer must be enabled when connecting flights use different aircraft.
 
-acme.validation.airline-manager.leg.flight-number.format.message     	   = The flight number must start with the airline's IATA code followed by 4 digits.
+acme.validation.airline-manager.leg.flight-number.format.message     	   = The flight number must begin with the IATA code of the airline associated with the manager, followed by four numeric digits.
 acme.validation.airline-manager.leg.flight-number.duplicate.message 	   = Another leg with the same flight number already exists.
 acme.validation.airline-manager.leg.valid-leg.overlap 					   = This leg overlaps with another one in the same flight.
 acme.validation.airline-manager.leg.valid-leg.time-conflict		           = The arrival must be at least 1 minute after the departure.
