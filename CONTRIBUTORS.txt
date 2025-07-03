@@ -10,6 +10,4 @@
 
 - Alejandro Sevillano Barea (alesevbar@alum.us.es)
 - Ignacio Naredo Bernardos (ignnarber@alum.us.es)
-- Adrian Robles Borrego (adrrobbor@alum.us.es)
-- Francisco Manuel Sabido González (frasabgon@alum.us.es)
 - David Escudero Aldana (davescald@alum.us.es)
