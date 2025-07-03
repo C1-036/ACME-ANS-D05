@@ -47,8 +47,6 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 			Flight assignedFlight = booking != null ? booking.getFlight() : null;
 			if (assignedFlight != null)
 				isFlightAccessible = this.repository.isFlightPublished(assignedFlight.getId(), currentDate);
-			else
-				isFlightAccessible = true;
 		}
 
 		Customer current = (Customer) super.getRequest().getPrincipal().getActiveRealm();
