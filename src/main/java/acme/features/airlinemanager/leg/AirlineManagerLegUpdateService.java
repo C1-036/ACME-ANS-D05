@@ -23,7 +23,6 @@ import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
-import acme.entities.aircraft.AircraftStatus;
 import acme.entities.airports.Airport;
 import acme.entities.flights.Leg;
 import acme.entities.flights.LegStatus;
@@ -42,20 +41,19 @@ public class AirlineManagerLegUpdateService extends AbstractGuiService<AirlineMa
 
 	@Override
 	public void authorise() {
-		boolean status;
 		int legId = super.getRequest().getData("id", int.class);
 		Leg leg = this.repository.findLegById(legId);
+		AirlineManager current = (AirlineManager) super.getRequest().getPrincipal().getActiveRealm();
 
-		status = leg != null && leg.isDraftMode() && super.getRequest().getPrincipal().hasRealm(leg.getFlight().getAirlinemanager());
+		boolean status = leg != null && leg.getFlight().getAirlinemanager().equals(current) && leg.getFlight().isDraftMode() && leg.isDraftMode();
 
-		if (status && !super.getRequest().getMethod().equals("GET")) {
-
+		if (status) {
 			int depId = super.getRequest().getData("departureAirport", int.class);
 			int arrId = super.getRequest().getData("arrivalAirport", int.class);
 			int planeId = super.getRequest().getData("aircraft", int.class);
 
 			boolean validDep = depId == 0 || this.repository.existsAirportById(depId);
-			boolean validArr = arrId == 0 || this.repository.existsAirportById(depId);
+			boolean validArr = arrId == 0 || this.repository.existsAirportById(arrId);
 			boolean validPlane = planeId == 0 || this.repository.existsAircraftById(planeId);
 
 			status = validDep && validArr && validPlane;
@@ -116,11 +114,6 @@ public class AirlineManagerLegUpdateService extends AbstractGuiService<AirlineMa
 				boolean isConnected = previousLeg.getArrivalAirport().equals(leg.getDepartureAirport());
 				super.state(isConnected, "departureAirport", "acme.validation.airline-manager.leg.not-connected-to-previous");
 			}
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("aircraft")) {
-			boolean ok = leg.getAircraft().getStatus() == AircraftStatus.ACTIVE;
-			super.state(ok, "aircraft", "acme.validation.airlinemanager.leg.aircraft-under-maintenance");
 		}
 
 	}
