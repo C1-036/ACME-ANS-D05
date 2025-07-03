@@ -14,7 +14,7 @@ import javax.validation.Payload;
 })
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = AirlineManagerValidator.class)
-public @interface ValidIdentifierAirlineManager {
+public @interface ValidAirlineManager {
 
 	String message() default "";
 

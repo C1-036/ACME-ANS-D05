@@ -8,13 +8,15 @@
 # purposes. The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-acme.validation.airline-manager.flight.identifier-number.invalid.message   = El identificador debe comenzar por tus iniciales, seguir el formato requerido y no estar ya en uso.
+acme.validation.airline-manager.identifier.message 						   = El identificador debe tener entre 2 y 3 letras mayúsculas seguidas de 6 dígitos.
+acme.validation.airline-manager.identifier.prefix.message 				   = El identificador debe comenzar con tus iniciales.
+acme.validation.airline-manager.identifier.unique.message 				   = Ese identificador ya está en uso.
 acme.validation.airline-manager.flight.delete-has-assignments 			   = No se puede eliminar el vuelo porque hay miembros de tripulación asignados a sus tramos.
 acme.validation.airline-manager.flight.no-legs 							   = No se puede publicar un vuelo que no tiene tramos.
 acme.validation.airline-manager.flight.legs-not-published 				   = Todos los tramos deben estar publicados antes de publicar el vuelo.
 acme.validation.airline-manager.flight.invalid-selfTransfer 			   = El autotransbordo debe estar habilitado cuando los vuelos de conexión utilizan aviones diferentes.
 
-acme.validation.airline-manager.leg.flight-number.format.message 		   = El número de vuelo debe comenzar con el código IATA de la aerolínea seguido de 4 dígitos.
+acme.validation.airline-manager.leg.flight-number.format.message 		   = El número de vuelo debe comenzar con el código IATA de la aerolínea asociada al manager, seguido de cuatro dígitos numéricos.
 acme.validation.airline-manager.leg.flight-number.duplicate.message 	   = Ya existe otro tramo con ese número de vuelo.
 acme.validation.airline-manager.leg.valid-leg.overlap 					   = Este tramo se solapa con otro del mismo vuelo.
 acme.validation.airline-manager.leg.valid-leg.time-conflict 			   = La llegada debe ser al menos 1 minuto después de la salida.
@@ -26,6 +28,8 @@ acme.validation.airline-manager.leg.legs-not-connected                     = Los
 acme.validation.airline-manager.leg.status.required                        = Debe seleccionar un estado de segmento de vuelo.
 acme.validation.airline-manager.leg.departure-in-the-past                  = La salida programada no puede ser en el pasado
 acme.validation.airline-manager.leg.arrival-in-the-past					   = La llegada debe establecerse en el futuro.
+acme.validation.airlinemanager.leg.aircraft-under-maintenance			   = La aeronave seleccionada se encuentra en mantenimiento y no puede asignarse al tramo.
+
 
 
 acme.validation.leg.flight-number.format.message 						   = El número de vuelo debe comenzar con el código IATA de la aerolínea seguido de 4 dígitos.

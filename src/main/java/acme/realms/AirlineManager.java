@@ -17,7 +17,8 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidUrl;
-import acme.constraints.ValidIdentifierAirlineManager;
+import acme.constraints.ValidAirlineManager;
+import acme.constraints.ValidIdentifierNumberFormat;
 import acme.entities.airline.Airline;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,7 +26,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@ValidIdentifierAirlineManager
+@ValidAirlineManager
 public class AirlineManager extends AbstractRole {
 
 	// Serialisation version --------------------------------------------------
@@ -35,7 +36,7 @@ public class AirlineManager extends AbstractRole {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@Valid
+	@ValidIdentifierNumberFormat
 	@Column(unique = true)
 	private String				identifierNumber;
 
