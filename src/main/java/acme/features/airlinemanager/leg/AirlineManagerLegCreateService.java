@@ -11,7 +11,6 @@ import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
-import acme.entities.aircraft.AircraftStatus;
 import acme.entities.airports.Airport;
 import acme.entities.flights.Flight;
 import acme.entities.flights.Leg;
@@ -46,7 +45,7 @@ public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineMa
 			int planeId = super.getRequest().getData("aircraft", int.class);
 
 			boolean validDep = depId == 0 || this.repository.existsAirportById(depId);
-			boolean validArr = arrId == 0 || this.repository.existsAirportById(depId);
+			boolean validArr = arrId == 0 || this.repository.existsAirportById(arrId);
 			boolean validPlane = planeId == 0 || this.repository.existsAircraftById(planeId);
 
 			status = validDep && validArr && validPlane;
@@ -117,11 +116,6 @@ public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineMa
 
 				super.state(isConnected, "departureAirport", "acme.validation.airline-manager.leg.not-connected-to-previous");
 			}
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("aircraft")) {
-			boolean ok = leg.getAircraft().getStatus() == AircraftStatus.ACTIVE;
-			super.state(ok, "aircraft", "acme.validation.airlinemanager.leg.aircraft-under-maintenance");
 		}
 
 	}

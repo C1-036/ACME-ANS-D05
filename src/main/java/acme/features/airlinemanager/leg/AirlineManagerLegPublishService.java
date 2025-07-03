@@ -12,7 +12,6 @@ import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
-import acme.entities.aircraft.AircraftStatus;
 import acme.entities.airports.Airport;
 import acme.entities.flights.Leg;
 import acme.entities.flights.LegStatus;
@@ -36,6 +35,18 @@ public class AirlineManagerLegPublishService extends AbstractGuiService<AirlineM
 		AirlineManager current = (AirlineManager) super.getRequest().getPrincipal().getActiveRealm();
 
 		boolean status = leg != null && leg.getFlight().getAirlinemanager().equals(current) && leg.getFlight().isDraftMode() && leg.isDraftMode();
+
+		if (status) {
+			int depId = super.getRequest().getData("departureAirport", int.class);
+			int arrId = super.getRequest().getData("arrivalAirport", int.class);
+			int planeId = super.getRequest().getData("aircraft", int.class);
+
+			boolean validDep = depId == 0 || this.repository.existsAirportById(depId);
+			boolean validArr = arrId == 0 || this.repository.existsAirportById(arrId);
+			boolean validPlane = planeId == 0 || this.repository.existsAircraftById(planeId);
+
+			status = validDep && validArr && validPlane;
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -94,10 +105,6 @@ public class AirlineManagerLegPublishService extends AbstractGuiService<AirlineM
 			}
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("aircraft")) {
-			boolean ok = leg.getAircraft().getStatus() == AircraftStatus.ACTIVE;
-			super.state(ok, "aircraft", "acme.validation.airlinemanager.leg.aircraft-under-maintenance");
-		}
 	}
 
 	@Override
